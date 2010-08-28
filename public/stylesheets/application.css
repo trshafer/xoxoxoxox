@@ -1,0 +1,31 @@
+body {
+  height: 100%; }
+  body #container {
+    height: inherit; }
+    body #container #content {
+      height: inherit; }
+
+#board {
+  height: 50%;
+  width: 50%;
+  padding-top: 15%;
+  margin: auto;
+  overflow: hidden; }
+  #board .space {
+    float: left;
+    width: 33%;
+    height: 33%;
+    text-align: center;
+    border: 1px solid black; }
+    #board .space.selected.user {
+      background-color: red; }
+    #board .space.selected.computer {
+      background-color: blue; }
+  #board #space-0, #board #space-1, #board #space-2 {
+    border-top: none; }
+  #board #space-6, #board #space-7, #board #space-8 {
+    border-bottom: none; }
+  #board #space-0, #board #space-3, #board #space-6 {
+    border-left: none; }
+  #board #space-2, #board #space-5, #board #space-8 {
+    border-right: none; }
