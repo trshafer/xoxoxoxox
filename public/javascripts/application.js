@@ -1,5 +1,4 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+var debug = false;
 
 // http://bytes.com/topic/javascript/answers/712559-determining-intersection-two-arrays
 function intersectionOf(array1, array2){
@@ -13,6 +12,39 @@ function intersectionOf(array1, array2){
   }
   return array3;
 }
+
+var AI = new function(){
+  var smart = true;
+  
+  function init(startingIntelligence){
+    smart = startingIntelligence;
+  }
+  
+  function wiseChoice(){
+    
+  }
+  
+  function randomChoice(){
+    return $('.space.unselected').filter(':random');
+  }
+  
+  function move(){
+    var elem;
+    if(smart){
+      elem = wiseChoice();
+    }else{
+      elem = randomChoice();
+    }
+    elem.trigger('click', {player: 'computer'});
+  }
+  
+  return {
+    init: init,
+    move: move
+  };
+}();
+
+AI.init(false);
 
 var Board = new function(){
   
@@ -30,7 +62,7 @@ var Board = new function(){
     if(data == null){
       data= {player: 'user'};
     }
-    log('click by: '+ data.player);
+    // log('click by: '+ data.player);
     //the click action
     $(this).removeClass('unselected').addClass('selected').addClass(data.player);
     //check for game over
@@ -40,7 +72,7 @@ var Board = new function(){
       return;
     }
     if(data.player == 'user'){
-       makeComputerMove();
+       AI.move();
     }
   };
   
@@ -56,8 +88,8 @@ var Board = new function(){
     var winningSet = $();
     //first check for user wins
     var userSpaces = spaceIdsFor('user'), computerSpaces = spaceIdsFor('computer');
-    log(userSpaces, 'userSpaces');
-    log(computerSpaces, 'computerSpaces');
+    // log(userSpaces, 'userSpaces');
+    // log(computerSpaces, 'computerSpaces');
     
     //ugh I can do this better..
     //check for user win
@@ -66,7 +98,7 @@ var Board = new function(){
         return;
       }
       var intersection = intersectionOf($(this), userSpaces);
-      log(intersection, 'intersection');
+      // log(intersection, 'intersection');
       if($(this).compare(intersection)){
         winningSet = intersection;
         isGameOver = true;
@@ -80,7 +112,7 @@ var Board = new function(){
         return;
       }
       var intersection = intersectionOf($(this), computerSpaces);
-      log(intersection, 'intersection');
+      // log(intersection, 'intersection');
       if($(this).compare(intersection)){
         winningSet = intersection;
         isGameOver = true;
@@ -88,9 +120,7 @@ var Board = new function(){
       }
     });
     
-    
-    
-    log(winningSet, 'winningSet');
+    // log(winningSet, 'winningSet');
     if(winner != null){
       markWinningSpaces(winningSet);
     }
@@ -118,10 +148,6 @@ var Board = new function(){
     });
   }
   
-  function makeComputerMove(){
-    var elem = $('.space.unselected').filter(':random');
-    elem.trigger('click', {player: 'computer'});
-  }
   return {
     init: function(){
       initClicks();
@@ -132,7 +158,7 @@ var Board = new function(){
 
 
 function log(obj,msg) {
-  if( window.console && console.log ){
+  if( window.console && console.log && debug){
     if(msg != null)
       console.log(msg);
     console.log(obj);
