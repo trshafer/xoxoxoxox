@@ -21,6 +21,8 @@ body {
       background-color: red; }
     #board .space.selected.computer {
       background-color: blue; }
+    #board .space.selected.winning-space {
+      background-color: green; }
   #board #space-0, #board #space-1, #board #space-2 {
     border-top: none; }
   #board #space-6, #board #space-7, #board #space-8 {
