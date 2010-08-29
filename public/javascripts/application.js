@@ -28,7 +28,7 @@ var WindowHandler = function(){
     
     //Right side
     // need to subtract 21 for the heading padding, and 10 for the tic tac toe padding, and 2 for good measure :(
-    $('#tic-tac-toe').height(fullHeight - $('#header').height() - 21-10 - 2);
+    $('#tic-tac-toe').height(fullHeight - $('#header').height() - 21-10 - 11);
   }
   return {
     resize: resize

@@ -1,6 +1,6 @@
 var Logger = new function(){
   
-  var userConsole = 'user-console';
+  var userConsoleId = 'user-console';
   var counter = 0;
   function info(message){
     userLog('info', message);
@@ -16,7 +16,9 @@ var Logger = new function(){
   }
   
   function userLog(level, message){
-    $('#'+userConsole).append($('<p>').addClass('log').addClass(level).text(++counter + ': ' +message));
+    var userConsole = $('#'+userConsoleId);
+    userConsole.append($('<p>').addClass('log').addClass(level).text(++counter + ': ' +message));
+    userConsole.attr({ scrollTop: userConsole.attr("scrollHeight") - userConsole.height() });
   }
   
   return {
