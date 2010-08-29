@@ -1,0 +1,1 @@
+page['#login-form-wrapper'].replace_html :partial => 'shared/login_form'

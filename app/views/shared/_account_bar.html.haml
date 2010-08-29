@@ -1,0 +1,5 @@
+#account-bar-wrapper
+  - if current_user.present?
+    = render :partial => 'shared/logged_in'
+  - else
+    = render :partial => 'shared/logged_out'

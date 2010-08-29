@@ -1,0 +1,1 @@
+page['#header'].replace_html :partial => 'shared/logged_in'

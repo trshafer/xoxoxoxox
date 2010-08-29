@@ -1,0 +1,1 @@
+page['#signup-form-wrapper'].replace_html :partial => 'shared/signup_form'
