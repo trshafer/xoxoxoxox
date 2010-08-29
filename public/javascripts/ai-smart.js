@@ -1,9 +1,7 @@
 SmartAI = new function(){
   function move(){
     var userIds = Board.spaceIdsFor('user'), computerIds = Board.spaceIdsFor('computer');
-    var availableIds = $('.space.unselected').map(function(index, elem){
-      return parseInt($(this).attr('data-space-id'), 10);
-    });
+    var availableIds = Board.emptySpaceIds();
     var theCheck = checkWrapper(availableIds, userIds, computerIds);
     log(theCheck, 'theCheck')
     return theCheck;
@@ -26,7 +24,7 @@ SmartAI = new function(){
        debugger;      
       }
 
-      return Rules.computerWins(computerIds);
+      return Rules.playerWins(computerIds);
     }else{
       var winningIds = availableIds.filter(function(index, nextId){
         var copiedIds = availableIds.map(function(index, item){return item});

@@ -1,5 +1,7 @@
 #logged-in-wrapper
   #login-name= current_user.login
   = link_to 'logout', logout_url, :id => 'logout-link'
+  #ai-maker-wrapper
+    = text_area_tag :user_ai, current_user.ai
   :javascript
     Account.login(#{current_user.id})

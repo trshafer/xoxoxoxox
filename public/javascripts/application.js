@@ -11,4 +11,5 @@ function log(obj,msg) {
 $(document).ready(function(){
   if(!AIDriver.isInitialized())
     AIDriver.init(RandomAI);
+    $('a.start-game').first().click();
 });

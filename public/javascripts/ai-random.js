@@ -1,6 +1,8 @@
 RandomAI = function(){
   function move(){
-    return $('.space.unselected').filter(':random');
+    log(Board.emptySpaceIds())
+    log(Board.emptySpaceIds().random())
+    return Board.emptySpaceIds().random();
   }
   return {move:move};
 }();

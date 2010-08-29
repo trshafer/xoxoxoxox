@@ -33,20 +33,20 @@ var Rules = function(){
    [0,4,8], [2,4,6] //diagonal
   ];
   
-  function computerWins(computerSpaces){
-    computerWins = false;
+  function playerWins(computerSpaces){
+    playerWins = false;
     //check for computer win
     $.each(winningSets, function(index, elem){
-      if(computerWins){
+      if(playerWins){
         return;
       }
       var intersection = intersectionOf($(this), computerSpaces);
       // log(intersection, 'intersection');
       if($(this).compare(intersection)){
-        computerWins = true;
+        playerWins = true;
       }
     });
-    return computerWins;
+    return playerWins;
   }
   
   function gameOver(){
@@ -117,7 +117,7 @@ var Rules = function(){
   
   return {
     gameOver: gameOver,
-    computerWins: computerWins
+    playerWins: playerWins
   };
   
 }();
@@ -142,7 +142,6 @@ var Board = function(){
     //the click action
     $(this).removeClass('unselected').addClass('selected').addClass(data.player);
     //check for game over
-    Account.markMove(data.player, $(this).attr('data-space-id'));
     if(Rules.gameOver()){
       log('game over');
       Account.endGame();
@@ -150,12 +149,24 @@ var Board = function(){
       return;
     }
     if(data.player == 'user'){
-       AIDriver.move();
+       var successfulAIMove = AIDriver.move();
+       if(!successfulAIMove){
+         console.warn('Retracted user move.')
+         $(this).addClass('unselected').removeClass('selected').removeClass(data.player);
+         return;
+       }
     }
+    Account.markMove(data.player, $(this).attr('data-space-id'));
   };
   
   function spaceIdsFor(player){
     return $('.space.selected.'+player).map(function(index, elem){
+      return parseInt($(this).attr('data-space-id'), 10);
+    });
+  }
+  
+  function emptySpaceIds(){
+    return $('.space.unselected').map(function(index, elem){
       return parseInt($(this).attr('data-space-id'), 10);
     });
   }
@@ -171,7 +182,8 @@ var Board = function(){
       initClicks();
     },
     reset: reset,
-    spaceIdsFor: spaceIdsFor
+    spaceIdsFor: spaceIdsFor,
+    emptySpaceIds: emptySpaceIds
   };
   
 }();

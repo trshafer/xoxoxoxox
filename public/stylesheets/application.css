@@ -2,8 +2,13 @@ body {
   height: 100%; }
   body #container {
     height: inherit; }
-    body #container #content {
-      height: inherit; }
+
+#ai-maker-wrapper {
+  width: 80%;
+  margin: auto; }
+  #ai-maker-wrapper #user_ai {
+    width: 100%;
+    height: 100px; }
 
 #console-debug {
   overflow: hidden; }
@@ -16,12 +21,13 @@ body {
   border: 1px solid black; }
 
 #board {
-  height: 50%;
   width: 50%;
-  padding-top: 15%;
   margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 500px; }
   #board .space {
+    cursor: pointer;
+    cursor: hand;
     float: left;
     width: 33%;
     height: 33%;
