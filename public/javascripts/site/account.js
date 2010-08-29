@@ -4,7 +4,9 @@ $('#login-link').live('click', function(ev){
 
 $('#logout-link').live('click', function(ev){
   ev.preventDefault();
-  $.get($(this).attr('href'));
+  $.get($(this).attr('href'), function(data){
+    WindowHandler.resize();
+  });
   return false;
 });
 
@@ -15,7 +17,7 @@ $('#signup-link').live('click', function(ev){
 $('form#new_user_session').live('submit', function(ev){
   ev.preventDefault();
   $(this).ajaxSubmit({success: function(responseText, statusText, xhr){
-    log(responseText)
+    WindowHandler.resize();
   }});
   return false;
 });
@@ -23,7 +25,7 @@ $('form#new_user_session').live('submit', function(ev){
 $('form#new_user').live('submit', function(ev){
   ev.preventDefault();
   $(this).ajaxSubmit({success: function(responseText, statusText, xhr){
-    log(responseText)
+    WindowHandler.resize();
   }});
   return false;
 });

@@ -3,8 +3,10 @@
     = render :partial => 'shared/head'
   %body
     #container
-      #header
-        = render :partial => 'shared/account_bar'
+      #ai-code-wrapper
+        = render :partial => 'shared/ai_code'
       #content
+        #header
+          = render :partial => 'shared/account_bar'
         = yield
       #footer

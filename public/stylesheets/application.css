@@ -1,34 +1,79 @@
 body {
   height: 100%; }
   body #container {
-    height: inherit; }
+    height: inherit;
+    margin: 0 10px; }
 
-#ai-maker-wrapper {
-  width: 80%;
-  margin: auto; }
-  #ai-maker-wrapper #ai-code-list {
-    overflow: hidden; }
-    #ai-maker-wrapper #ai-code-list li.add-form-wrapper {
+#ai-code-wrapper {
+  width: 40%;
+  height: inherit;
+  float: left;
+  padding-right: 1%;
+  border-right: 1px solid black; }
+  #ai-code-wrapper #ai-code-list {
+    overflow: hidden;
+    line-height: 27px; }
+    #ai-code-wrapper #ai-code-list li.add-form-wrapper {
       overflow: hidden; }
-      #ai-maker-wrapper #ai-code-list li.add-form-wrapper a, #ai-maker-wrapper #ai-code-list li.add-form-wrapper form {
+      #ai-code-wrapper #ai-code-list li.add-form-wrapper a, #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
         float: left; }
-      #ai-maker-wrapper #ai-code-list li.add-form-wrapper form {
+      #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
         overflow: hidden;
         margin-left: 5px; }
-        #ai-maker-wrapper #ai-code-list li.add-form-wrapper form fieldset {
+        #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset {
           float: left; }
-          #ai-maker-wrapper #ai-code-list li.add-form-wrapper form fieldset input[type=text] {
+          #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset input[type=text] {
             width: 100px; }
-    #ai-maker-wrapper #ai-code-list li {
+    #ai-code-wrapper #ai-code-list li {
       float: left;
       margin-right: 10px;
       cursor: pointer;
       cursor: hand; }
-      #ai-maker-wrapper #ai-code-list li.selected {
+      #ai-code-wrapper #ai-code-list li.selected {
         cursor: default; }
-  #ai-maker-wrapper #user_ai {
+  #ai-code-wrapper #user_ai {
     width: 100%;
-    height: 100px; }
+    height: 100%;
+    margin: 0; }
+
+#content {
+  width: 58%;
+  margin-left: 41%;
+  padding-left: 1%; }
+
+#header {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  padding-top: 10px; }
+
+#board-wrapper {
+  margin-left: 5px; }
+
+#logged-in-wrapper {
+  overflow: hidden; }
+  #logged-in-wrapper #logo {
+    float: left; }
+    #logged-in-wrapper #logo h1, #logged-in-wrapper #logo h2 {
+      float: left; }
+    #logged-in-wrapper #logo h1 {
+      margin-right: 2px;
+      font-size: 1.5em; }
+    #logged-in-wrapper #logo h2 {
+      font-size: 1.3em;
+      padding-top: 3px; }
+  #logged-in-wrapper #account {
+    float: right; }
+  #logged-in-wrapper #login-name {
+    float: left;
+    margin-right: 20px;
+    padding-top: 3px; }
+    #logged-in-wrapper #login-name span.name {
+      font-weight: bold;
+      font-size: 1.2em; }
+  #logged-in-wrapper #logout-link {
+    padding-top: 5px;
+    float: left; }
 
 #console-debug {
   overflow: hidden; }

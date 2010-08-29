@@ -13,3 +13,22 @@ $(document).ready(function(){
     AIDriver.init(RandomAI);
     $('a.start-game').first().click();
 });
+
+var WindowHandler = function(){
+  function resize(){
+    var fullHeight = $('#ai-code-wrapper').height();
+    var otherItemsHeight = $('#ai-code-header').height() + $('#ai-code-footer').height();
+    $('#ai-code-content').height(fullHeight - otherItemsHeight);
+  }
+  return {
+    resize: resize
+  };
+}();
+
+
+$(document).ready(function(){
+  $(window).resize(function(ev){
+    WindowHandler.resize();
+  });
+  WindowHandler.resize();
+});

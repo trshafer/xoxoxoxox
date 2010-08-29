@@ -1,1 +1,2 @@
 page['header'].replace_html :partial => 'shared/logged_out'
+page['#ai-code-wrapper'].replace_html ''
