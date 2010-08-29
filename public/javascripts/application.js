@@ -21,9 +21,14 @@ $(document).ready(function(){
 
 var WindowHandler = function(){
   function resize(){
-    var fullHeight = $('#ai-code-wrapper').height();
+    //Left Side
+    var fullHeight = $('#container').height() - $('#footer').height();
     var otherItemsHeight = $('#ai-code-header').height() + $('#ai-code-footer').height();
     $('#ai-code-content').height(fullHeight - otherItemsHeight);
+    
+    //Right side
+    // need to subtract 21 for the heading padding, and 10 for the tic tac toe padding, and 2 for good measure :(
+    $('#tic-tac-toe').height(fullHeight - $('#header').height() - 21-10 - 2);
   }
   return {
     resize: resize

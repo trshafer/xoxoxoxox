@@ -151,7 +151,7 @@ var Board = function(){
     if(data.player == 'user'){
        var successfulAIMove = AIDriver.move();
        if(!successfulAIMove){
-         console.warn('Retracted user move.')
+         Logger.systemError('Retracted user move from space '+ $(this).attr('data-space-id')+'.');
          $(this).addClass('unselected').removeClass('selected').removeClass(data.player);
          return;
        }

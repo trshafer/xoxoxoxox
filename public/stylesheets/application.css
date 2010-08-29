@@ -55,7 +55,6 @@ body {
   padding-left: 1%; }
 
 #header {
-  margin-bottom: 10px;
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   padding-top: 10px; }
@@ -98,11 +97,43 @@ body {
   margin: 10px;
   border: 1px solid black; }
 
-#board {
+#tic-tac-toe {
+  padding-top: 10px; }
+
+#user-console {
+  height: 50%;
+  overflow-y: auto;
+  border: 1px solid black;
+  border-bottom: none;
+  padding: 5px; }
+  #user-console p.log {
+    padding-left: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-bottom: 1px solid black; }
+    #user-console p.log.warn {
+      background-color: yellow; }
+    #user-console p.log.error {
+      background-color: red; }
+    #user-console p.log.system-error {
+      background-color: black;
+      color: white;
+      border-bottom: 1px solid white; }
+
+#board-info {
+  overflow: hidden; }
+  #board-info #board-actions {
+    float: left; }
+  #board-info #end-game-results {
+    float: right; }
+
+#board-wrapper {
   margin: auto;
   overflow: hidden;
-  height: 500px; }
-  #board .space {
+  height: 50%; }
+  #board-wrapper #board-wrapper {
+    height: 100%; }
+  #board-wrapper .space {
     cursor: pointer;
     cursor: hand;
     float: left;
@@ -110,17 +141,17 @@ body {
     height: 33%;
     text-align: center;
     border: 1px solid black; }
-    #board .space.selected.user {
+    #board-wrapper .space.selected.user {
       background-color: red; }
-    #board .space.selected.computer {
+    #board-wrapper .space.selected.computer {
       background-color: blue; }
-    #board .space.selected.winning-space {
+    #board-wrapper .space.selected.winning-space {
       background-color: green; }
-  #board #space-0, #board #space-1, #board #space-2 {
+  #board-wrapper #space-0, #board-wrapper #space-1, #board-wrapper #space-2 {
     border-top: none; }
-  #board #space-6, #board #space-7, #board #space-8 {
+  #board-wrapper #space-6, #board-wrapper #space-7, #board-wrapper #space-8 {
     border-bottom: none; }
-  #board #space-0, #board #space-3, #board #space-6 {
+  #board-wrapper #space-0, #board-wrapper #space-3, #board-wrapper #space-6 {
     border-left: none; }
-  #board #space-2, #board #space-5, #board #space-8 {
+  #board-wrapper #space-2, #board-wrapper #space-5, #board-wrapper #space-8 {
     border-right: none; }

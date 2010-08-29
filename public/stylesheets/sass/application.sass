@@ -52,10 +52,8 @@ body
   :margin-left 41%
   :padding-left 1%
   
-  
 //HEADER
 #header
-  :margin-bottom 10px
   :border-bottom 1px solid black
   :padding-bottom 10px
   :padding-top 10px
@@ -94,12 +92,44 @@ body
   :padding 10px
   :margin 10px
   :border 1px solid black
+
+#tic-tac-toe
+  :padding-top 10px
+
+//USER CONSOLE
+#user-console
+  :height 50%
+  :overflow-y auto
+  :border 1px solid black
+  :border-bottom none
+  :padding 5px
+  p.log
+    :padding-left 5px
+    :padding-bottom 2px
+    :padding-top 2px
+    :border-bottom 1px solid black
+    &.warn
+      :background-color yellow
+    &.error
+      :background-color red
+    &.system-error
+      :background-color black
+      :color white
+      :border-bottom 1px solid white
   
 //BOARD
-#board
+#board-info
+  :overflow hidden
+  #board-actions
+    :float left
+  #end-game-results
+    :float right
+#board-wrapper
   :margin auto
   :overflow hidden
-  :height 500px
+  :height 50%
+  #board-wrapper
+    :height 100%
   .space
     :cursor pointer
     :cursor hand

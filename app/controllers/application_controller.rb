@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
+  
+  def find_last_ai
+      @recent_ai = session[:recent_ai].present? ? current_user.ai_implementations.find(session[:recent_ai]) : current_user.ai_implementations.first
+  end
 
   def require_user
     unless current_user

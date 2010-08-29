@@ -5,8 +5,8 @@ var AIDriver = function(){
   }
   
   function move(){
-    var elem = ai.move();
-    elem = $(elem);
+    var response = ai.move();
+    elem = $(response);
     if(isInt(elem.get(0))){
       elem = $('#space-'+elem.get(0));
     }
@@ -14,7 +14,8 @@ var AIDriver = function(){
       elem.trigger('click', {player: 'computer'});
       return true;
     }else{
-      console.warn('Error making move!');
+      Logger.systemError('AI did not return an Integer between 0-8.');
+      Logger.systemError('Returned: '+response);
       return false;
     }
   }
