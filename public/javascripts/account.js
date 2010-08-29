@@ -65,6 +65,10 @@ var Account = new function(){
   
   function markMove(player, space){
     if(userId == null){return;}
+    if(gameId == null){
+      console.warn("HEY DUDE THIS SHOULDN'T HAPPEN");
+      return;
+    }
     $.post('/users/'+userId+'/games/'+gameId+'/mark_move',{'move[player]': player, 'move[space]': space}, function(data){
       log(data, 'markMove');
     }, 'json')

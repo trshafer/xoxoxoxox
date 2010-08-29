@@ -38,16 +38,21 @@ var AIDriver = function(){
   };
 }();
 
-$('a#add-code').live('click', function(){
-  $('form#new_ai_implementation').show()
+$('a#add-code-show').live('click', function(){
+  $('a#add-code-show').hide();
+  $('a#add-code-hide').show();
+  $('form#new_ai_implementation').show();
+
 });
 
-$('a.cancel').live('click', function(){
-  var form = $(this).closest('form').hide();
+$('a#add-code-hide').live('click', function(){
+  $('a#add-code-show').show();
+  $('a#add-code-hide').hide();
+  var form = $('#new_ai_implementation').hide();
   form.find('input[type=text]').each(function(index){
     $(this).val('');
   });
-})
+});
 
 $('#new_ai_implementation').live('submit', function(ev){
   ev.preventDefault();

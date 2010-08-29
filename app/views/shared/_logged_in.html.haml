@@ -4,12 +4,15 @@
   #ai-maker-wrapper
     %ul#ai-code-list
       %li.add-form-wrapper
-        = link_to_void '+', :id => 'add-code'
+        = link_to_void '+', :id => 'add-code-show'
+        = link_to_void '–', :id => 'add-code-hide', :style => 'display:none'
+
+
         - semantic_form_for AiImplementation.new, :url => user_ai_implementations_url(current_user), :html => {:style => 'display:none', :class => 'validate'} do |f|
+
           = f.inputs :name
           - f.buttons do
             = f.commit_button 'Save', :button_html => {:class => 'commit'}
-            %li= link_to_void 'cancel', :class => 'cancel'
       - current_user.ai_implementations.each_with_index do |ai, index|
         %li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, ai), :class => index == 0 ? 'selected' : nil}= ai.name
     = text_area_tag :user_ai, current_user.ai_implementations.first.code
