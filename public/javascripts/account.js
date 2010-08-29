@@ -30,7 +30,7 @@ $('form#new_user').live('submit', function(ev){
 
 var Account = new function(){
   
-  var userId, gameId;
+  var userId, gameId, aiImplementationId;
   
   function login(newUserId){
     userId = newUserId;
@@ -42,6 +42,25 @@ var Account = new function(){
       gameId = data.game_id
       log(data, 'startGame')
     }, 'json');
+  }
+  
+  
+  function setCode(ai_id){
+      aiImplementationId = ai_id;
+  }
+  
+  function saveCode(code){
+    if(userId == null){return;}
+    $.ajax({
+      url:'/users/'+userId+'/ai_implementations/' + aiImplementationId,
+      data: {
+        'ai_implementation[code]':code
+      },
+      success: function(data){
+        log(data, 'saveCode')
+      }, 
+      dataType: 'json',
+      type: 'put'});
   }
   
   function markMove(player, space){
@@ -61,5 +80,17 @@ var Account = new function(){
     log('Insert AJAX call here to end game')
   }
   
-  return {login: login, logout :logout, startGame: startGame, markMove: markMove, endGame: endGame}
+  function currentUserId(){
+    return userId;
+  }
+  
+  return {
+    currentUserId: currentUserId,
+    login: login, 
+    logout :logout,
+    saveCode: saveCode,
+    setCode: setCode,
+    startGame: startGame, 
+    markMove: markMove, 
+    endGame: endGame}
 }();

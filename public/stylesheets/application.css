@@ -6,6 +6,26 @@ body {
 #ai-maker-wrapper {
   width: 80%;
   margin: auto; }
+  #ai-maker-wrapper #ai-code-list {
+    overflow: hidden; }
+    #ai-maker-wrapper #ai-code-list li.add-form-wrapper {
+      overflow: hidden; }
+      #ai-maker-wrapper #ai-code-list li.add-form-wrapper a, #ai-maker-wrapper #ai-code-list li.add-form-wrapper form {
+        float: left; }
+      #ai-maker-wrapper #ai-code-list li.add-form-wrapper form {
+        overflow: hidden;
+        margin-left: 5px; }
+        #ai-maker-wrapper #ai-code-list li.add-form-wrapper form fieldset {
+          float: left; }
+          #ai-maker-wrapper #ai-code-list li.add-form-wrapper form fieldset input[type=text] {
+            width: 100px; }
+    #ai-maker-wrapper #ai-code-list li {
+      float: left;
+      margin-right: 10px;
+      cursor: pointer;
+      cursor: hand; }
+      #ai-maker-wrapper #ai-code-list li.selected {
+        cursor: default; }
   #ai-maker-wrapper #user_ai {
     width: 100%;
     height: 100px; }

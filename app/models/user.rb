@@ -1,23 +1,16 @@
 class User < ActiveRecord::Base
 
   has_many :games
+  has_many :ai_implementations, :order => 'created_at desc'
+
+  before_create :generate_first_code
 
   acts_as_authentic do |c|
     c.validate_email_field = false
   end
-
-  def ai
-    <<-eos
-      // Create your own AI
-      // the only function you must implement is a move function
-      // to get user spaces call: Board.spaceIdsFor('user');
-      // to get computer spaces call: Board.spaceIdsFor('computer');
-      // to get empty spaces call: Board.emptySpaceIds();
-      // To see if you have a winning set use: Rules.playerWins(playerIdsArray);
-      // if you get frustrated, you can alwasys go back to Board.emptySpaceIds().random();
-      function move(){
-        return Board.emptySpaceIds().random();
-      }
-    eos
+  
+  protected
+  def generate_first_code
+    self.ai_implementations.build(:name => 'First')
   end
 end

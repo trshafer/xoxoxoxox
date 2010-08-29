@@ -5,6 +5,26 @@ body
 #ai-maker-wrapper
   :width 80%
   :margin auto
+  #ai-code-list
+    :overflow hidden
+    li.add-form-wrapper
+      :overflow hidden
+      a, form
+        :float left
+      form
+        :overflow hidden
+        :margin-left 5px
+        fieldset
+          :float left
+          input[type=text]
+            :width 100px
+    li
+      :float left
+      :margin-right 10px
+      :cursor pointer
+      :cursor hand
+      &.selected
+        :cursor default
   #user_ai
     :width 100%
     :height 100px

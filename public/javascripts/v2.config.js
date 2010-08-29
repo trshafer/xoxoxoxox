@@ -7,7 +7,7 @@
 
 // Auto-validate form with this class.
 // 
-// v2.Form.autoValidateClass = 'validate';
+v2.Form.autoValidateClass = 'validate';
 
 // Trigger validation on action with this class.
 // 

@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   map.resources :users do |u|
     u.resources :games, :member => {:mark_move => :post}
+    u.resources :ai_implementations
   end
   map.login '/login', :controller => :user_sessions, :action => :create
 
