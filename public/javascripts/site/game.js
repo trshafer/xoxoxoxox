@@ -173,6 +173,7 @@ var Board = function(){
   
   function reset(){
     $('.space').removeClass('selected').removeClass('user').removeClass('computer').removeClass('winning-space').addClass('unselected');
+    $('#end-game-results').text('');
     killClicks();
     initClicks();
   }
