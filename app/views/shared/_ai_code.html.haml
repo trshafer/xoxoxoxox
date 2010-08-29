@@ -10,11 +10,11 @@
           = f.inputs :name
           - f.buttons do
             = f.commit_button 'Save', :button_html => {:class => 'commit'}
-      - current_user.ai_implementations.each_with_index do |ai, index|
-        %li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, ai), :class => index == 0 ? 'selected' : nil}= ai.name
+      - current_user.ai_implementations.each do |ai|
+        %li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, ai), :class => ai == @recent_ai ? 'selected' : nil}= ai.name
 
   #ai-code-content
-    = text_area_tag :user_ai, current_user.ai_implementations.first.code
+    = text_area_tag :user_ai, @recent_ai.code, :autocomplete => 'off'
 
   #ai-code-footer
     = link_to_void 'Save Code', :id => 'save-code'

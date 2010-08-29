@@ -9,8 +9,13 @@ function log(obj,msg) {
 }
 
 $(document).ready(function(){
-  if(!AIDriver.isInitialized())
-    AIDriver.init(RandomAI);
+  if(!AIDriver.isInitialized()){
+    if($('#user_ai').size() > 0){
+      $('#user_ai').blur();
+    }else{
+      AIDriver.init(RandomAI);
+    }
+  }
     $('a.start-game').first().click();
 });
 

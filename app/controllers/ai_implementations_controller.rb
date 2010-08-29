@@ -18,6 +18,7 @@ class AiImplementationsController < ApplicationController
 
   def show
     @ai = current_user.ai_implementations.find(params[:id])
+    session[:recent_ai] = @ai.id
     respond_to do |wants|
       wants.html { render :json => @ai.to_json }
     end
