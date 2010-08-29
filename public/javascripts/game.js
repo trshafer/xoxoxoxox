@@ -1,4 +1,10 @@
 
+$('.reset-board').live('click', function(ev){
+  ev.preventDefault();
+  Board.reset();
+  return false;
+});
+
 // http://bytes.com/topic/javascript/answers/712559-determining-intersection-two-arrays
 function intersectionOf(array1, array2){
   array3 = $();
@@ -272,10 +278,16 @@ var Board = function(){
     });
   }
   
+  function reset(){
+    $('.space').removeClass('selected').removeClass('user').removeClass('computer').removeClass('winning-space').addClass('unselected');
+    initClicks();
+  }
+  
   return {
     init: function(){
       initClicks();
     },
+    reset: reset,
     spaceIdsFor: spaceIdsFor
   };
   
