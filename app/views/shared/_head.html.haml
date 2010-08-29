@@ -1,7 +1,5 @@
-= javascript_include_tag 'jquery', 'jquery-ui', 'jrails', 'jquery.random', 'jquery.compare', 'jquery.form'
-= javascript_include_tag 'XMLHttpRequest' ,'v2.standalone.full.min', 'v2.config', 'v2.rails'
+= include_javascripts :library
 = javascript_for_validatious
+= include_javascripts :site
 
-= javascript_include_tag 'application', 'account', 'game', 'ai-driver'
-= javascript_include_tag 'ai-smart', 'ai-random'
-= stylesheet_link_tag 'reset', 'application'
+= include_stylesheets :site

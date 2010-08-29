@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem "authlogic"
   config.gem 'formtastic'
+  config.gem "jammit"
   config.gem 'validatious-on-rails'
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

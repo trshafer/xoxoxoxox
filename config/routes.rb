@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  Jammit::Routes.draw(map)
+
 
   map.resource :dashboards
   map.resource :user_session
