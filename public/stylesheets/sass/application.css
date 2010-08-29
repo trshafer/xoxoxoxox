@@ -31,8 +31,8 @@ body {
       cursor: pointer;
       cursor: hand; }
     #ai-code-wrapper #ai-code-list li.load-ai-code {
-      background-color: #cee3f8;
-      border: 1px solid #5f99cf;
+      background-color: #5f99cf;
+      border: 1px solid black;
       padding: 3px;
       border-bottom: 0;
       -border-radius-topleft: 5px;
@@ -43,7 +43,7 @@ body {
       -webkit-border-top-right-radius: 5px; }
       #ai-code-wrapper #ai-code-list li.load-ai-code.selected {
         cursor: default;
-        background-color: white; }
+        background-color: #cee3f8; }
   #ai-code-wrapper #user_ai {
     width: 100%;
     height: 100%;
