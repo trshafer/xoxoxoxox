@@ -7,3 +7,8 @@ function log(obj,msg) {
     console.log(obj);
   }
 }
+
+$(document).ready(function(){
+  if(!AIDriver.isInitialized())
+    AIDriver.init(RandomAI);
+});
