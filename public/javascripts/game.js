@@ -5,6 +5,13 @@ $('.reset-board').live('click', function(ev){
   return false;
 });
 
+$('.start-game').live('click', function(ev){
+  ev.preventDefault();
+  Board.reset();
+  Account.startGame();
+  return false;
+});
+
 // http://bytes.com/topic/javascript/answers/712559-determining-intersection-two-arrays
 function intersectionOf(array1, array2){
   array3 = $();
@@ -254,6 +261,10 @@ var Board = function(){
     $('.space.unselected').live('click', spaceHandler);
   }
   
+  function killClicks(){
+    $('.space.unselected').die('click', spaceHandler);
+  }
+  
   function spaceHandler(ev, data){
     if(data == null){
       data= {player: 'user'};
@@ -262,9 +273,11 @@ var Board = function(){
     //the click action
     $(this).removeClass('unselected').addClass('selected').addClass(data.player);
     //check for game over
+    Account.markMove(data.player, $(this).attr('data-space-id'));
     if(Rules.gameOver()){
       log('game over');
-      $('.space.unselected').die('click', spaceHandler);
+      Account.endGame();
+      killClicks();
       return;
     }
     if(data.player == 'user'){
@@ -280,6 +293,7 @@ var Board = function(){
   
   function reset(){
     $('.space').removeClass('selected').removeClass('user').removeClass('computer').removeClass('winning-space').addClass('unselected');
+    killClicks();
     initClicks();
   }
   
@@ -292,4 +306,3 @@ var Board = function(){
   };
   
 }();
-Board.init();

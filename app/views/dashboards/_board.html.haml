@@ -1,3 +1,6 @@
-#board
-  - 9.times do |index|
-    .space.unselected{:id => "space-#{index}", :'data-space-id' => index}= index
+#board-wrapper
+  #board-actions
+    = link_to_void 'Start Game', :class => 'start-game'
+  #board
+    - 9.times do |index|
+      .space.unselected{:id => "space-#{index}", :'data-space-id' => index}= index

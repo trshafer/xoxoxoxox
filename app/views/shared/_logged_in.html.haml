@@ -1,2 +1,5 @@
-#login-name= current_user.login
-= link_to 'logout', logout_url, :id => 'logout-link'
+#logged-in-wrapper
+  #login-name= current_user.login
+  = link_to 'logout', logout_url, :id => 'logout-link'
+  :javascript
+    Account.login(#{current_user.id})
