@@ -65,7 +65,7 @@ $('#new_ai_implementation').live('submit', function(ev){
       newItem.text(data.ai_implementation.name)
       $('li.add-form-wrapper').after(newItem)
       newItem.click();
-      $('a.cancel').click();
+      $('a#add-code-hide').click();
       }
   });
   return false;
