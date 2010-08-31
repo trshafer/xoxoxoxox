@@ -16,4 +16,8 @@
     = text_area_tag :user_ai, @recent_ai.code, :autocomplete => 'off'
 
   #ai-code-footer
-    = link_to_void 'Save Code', :id => 'save-code'
+    #save-wrapper
+      #save-link
+        = link_to_void 'Save Code', :id => 'save-code'
+        %span (ctrl+s)
+      #save-loader{:style => 'display:none'}= image_tag 'save-loader.gif'

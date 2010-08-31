@@ -12,6 +12,8 @@ javascripts:
     - public/javascripts/frameworks/validatious/v2.standalone.full.min.js
     - public/javascripts/frameworks/validatious/v2.config.js
     - public/javascripts/frameworks/validatious/v2.rails.js
+    - public/javascripts/frameworks/code-mirror/codemirror.js
+
   site:
     - public/javascripts/application.js
     - public/javascripts/site/*.js

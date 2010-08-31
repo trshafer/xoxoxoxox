@@ -53,13 +53,14 @@ var Account = new function(){
   
   function saveCode(code){
     if(userId == null){return;}
+    $('#save-loader').show();
     $.ajax({
       url:'/users/'+userId+'/ai_implementations/' + aiImplementationId,
       data: {
         'ai_implementation[code]':code
       },
       success: function(data){
-        log(data, 'saveCode')
+        $('#save-loader').hide();
       }, 
       dataType: 'json',
       type: 'put'});

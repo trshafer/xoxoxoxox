@@ -56,6 +56,7 @@ $('#new_ai_implementation').live('submit', function(ev){
 });
 
 $('#save-code').live('click', function(){
+  $('textarea#user_ai').val(AIMaker.getCode());
   Account.saveCode($('textarea#user_ai').val());
 });
 
@@ -65,6 +66,7 @@ $('li.load-ai-code:not(.selected)').live('click', function(){
     $('li.load-ai-code.selected').removeClass('selected');
     self.addClass('selected');
     $('textarea#user_ai').val(data.ai_implementation.code);
+    AIMaker.setCode(data.ai_implementation.code);
     Account.setCode(data.ai_implementation.id);
     $('textarea#user_ai').blur();
   }, 'json');
@@ -75,3 +77,46 @@ $('textarea#user_ai').live('blur', function(){
   var UserAI = new Function(userCode)();
   AIDriver.setAI(UserAI);
 });
+
+$(document).bind('keystrokes', {
+keys:["ctrl+s"]			
+}, function(event){
+	$('#save-code').click();
+});
+
+var AIMaker = new function(){
+  
+  var editor;
+  
+  function init(){
+    $(document).ready(function(){
+      editor = CodeMirror.fromTextArea("user_ai", {
+        autoMatchParens: true,
+        lineNumbers: true,
+        saveFunction: function(ev){
+          $('#save-code').click();
+        },
+        parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
+        path: "/javascripts/frameworks/code-mirror/",
+        stylesheet: "/stylesheets/code-mirror/jscolors.css"
+      });
+    });
+
+  }
+  
+  function setCode(code){
+    editor.setCode(code);
+  }
+  
+  function getCode(){
+    return editor.getCode();
+  }
+  
+  
+  return {
+    init: init,
+    setCode: setCode,
+    getCode: getCode
+  };
+}();
+AIMaker.init();

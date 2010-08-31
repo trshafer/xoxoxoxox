@@ -65,6 +65,31 @@ html {
     height: 100%;
     margin: 0; }
 
+.CodeMirror-wrapping {
+  height: 100% !important;
+  border: 1px solid black; }
+  .CodeMirror-wrapping .CodeMirror-line-numbers {
+    font-size: 10pt;
+    margin-top: 2px;
+    font-family: monospace;
+    line-height: 11pt; }
+    .CodeMirror-wrapping .CodeMirror-line-numbers div {
+      font-size: 10pt;
+      font-family: monospace;
+      line-height: 11pt; }
+
+#save-wrapper {
+  overflow: hidden; }
+  #save-wrapper #save-link {
+    margin-right: 10px; }
+    #save-wrapper #save-link span {
+      font-size: 80%; }
+  #save-wrapper #save-loader {
+    margin-top: 7px; }
+  #save-wrapper div {
+    margin-top: 5px;
+    float: left; }
+
 #content {
   width: 58%;
   margin-left: 41%;
