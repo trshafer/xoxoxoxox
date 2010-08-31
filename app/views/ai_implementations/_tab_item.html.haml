@@ -1,0 +1,9 @@
+- ai_class = tab_item == @recent_ai ? 'selected ' : ''
+- ai_class << (tab_item.published? ? 'published' : 'unpublished')
+%li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, tab_item), :class => ai_class}
+  .name= tab_item.name
+  - form_for [current_user, tab_item], :html => {:class => 'publishing-form'} do |f|
+    = f.hidden_field :published, :id => '', :class => 'publish-input'
+    .publishing-actions
+      = f.submit 'Publish', :class => 'publish', :style => (tab_item.published? ? 'display:none' : nil), :id => nil, :'data-publish' => 1
+      = f.submit 'Unpublish', :class => 'unpublish', :style => (tab_item.published? ? nil : 'display:none'), :id => nil, :'data-publish' => 0

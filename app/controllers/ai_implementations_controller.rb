@@ -4,7 +4,7 @@ class AiImplementationsController < ApplicationController
     @ai = current_user.ai_implementations.create(params[:ai_implementation])
     @ai.service_url = user_ai_implementation_path(current_user, @ai)
     respond_to do |wants|
-      wants.json { render :json => @ai.to_json(:methods => :service_url) }
+      wants.js { render :partial => 'tab_item', :object => @ai}
     end
   end
 

@@ -14,6 +14,7 @@ $('.publishing-actions input[type=submit]').live('click',function(ev){
   publishForm.find('input.publish-input').val($(this).attr('data-publish'));
   publishForm.ajaxSubmit({
     dataType: 'json',
+    type: 'put',
     success: function(data){
       if(data.ai_implementation.published){
         actionsWrapper.find('.publish').hide();
@@ -42,12 +43,11 @@ $('a#add-code-hide').live('click', function(){
 $('#new_ai_implementation').live('submit', function(ev){
   ev.preventDefault();
   $(this).ajaxSubmit({
-    dataType: 'json',
-    type: 'put',
+    dataType: 'js',
     success: function(data){
-      var newItem = $('<li>').addClass('load-ai-code').attr('data-service-url', data.ai_implementation.service_url);
-      newItem.text(data.ai_implementation.name);
-      $('li.add-form-wrapper').after(newItem);
+      $('#ai-code-list').find('li.selected').removeClass('selected');
+      var newItem = $(data);
+      $('#ai-code-list').find('li.add-form-wrapper').after(newItem);
       newItem.click();
       $('a#add-code-hide').click();
       }
