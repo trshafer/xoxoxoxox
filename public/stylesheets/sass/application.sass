@@ -124,23 +124,27 @@ body
     :float right
 #board-wrapper
   :margin auto
-  :overflow hidden
   :height 50%
   #board-wrapper
     :height 100%
+  #board
+    :overflow hidden
   .space
     :cursor pointer
     :cursor hand
     :float left
     :width 33%
-    :height 33%
-    :text-align center
+    :height 31%
     :border 1px solid black
+    :background-repeat no-repeat
+    :background-position center
+    &.unselected
+      :background-image url(/images/spaces/blank.png)
     &.selected
       &.user
-        :background-color red
+        :background-image url(/images/spaces/x.png)
       &.computer
-        :background-color blue
+        :background-image url(/images/spaces/o.png)
       &.winning-space
         :background-color green
   #space-0, #space-1, #space-2

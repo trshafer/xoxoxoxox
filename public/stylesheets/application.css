@@ -127,22 +127,26 @@ body {
 
 #board-wrapper {
   margin: auto;
-  overflow: hidden;
   height: 50%; }
   #board-wrapper #board-wrapper {
     height: 100%; }
+  #board-wrapper #board {
+    overflow: hidden; }
   #board-wrapper .space {
     cursor: pointer;
     cursor: hand;
     float: left;
     width: 33%;
-    height: 33%;
-    text-align: center;
-    border: 1px solid black; }
+    height: 31%;
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-position: center; }
+    #board-wrapper .space.unselected {
+      background-image: url(/images/spaces/blank.png); }
     #board-wrapper .space.selected.user {
-      background-color: red; }
+      background-image: url(/images/spaces/x.png); }
     #board-wrapper .space.selected.computer {
-      background-color: blue; }
+      background-image: url(/images/spaces/o.png); }
     #board-wrapper .space.selected.winning-space {
       background-color: green; }
   #board-wrapper #space-0, #board-wrapper #space-1, #board-wrapper #space-2 {
