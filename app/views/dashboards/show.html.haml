@@ -1,4 +1,6 @@
 #tic-tac-toe
   #board-wrapper
     = render :partial => 'board'
-  #user-console
+  #user-console-wrapper
+    = link_to_void 'Clear', :class => 'clear-console'
+    #user-console

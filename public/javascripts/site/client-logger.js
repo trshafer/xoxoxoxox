@@ -15,6 +15,11 @@ var Logger = new function(){
     userLog('system-error', message);
   }
   
+  function clear(){
+    $('#'+userConsoleId).empty();
+    counter = 0;
+  }
+  
   function userLog(level, message){
     var userConsole = $('#'+userConsoleId);
     userConsole.append($('<p>').addClass('log').addClass(level).text(++counter + ': ' +message));
@@ -25,6 +30,12 @@ var Logger = new function(){
     info: info,
     warn: warn,
     error: error,
+    clear: clear,
     systemError: systemError
   };
 }();
+
+$('a.clear-console').live('click', function(ev){
+  Logger.clear();
+  return false;
+});

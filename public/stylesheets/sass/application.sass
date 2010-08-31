@@ -112,10 +112,17 @@ html
   :padding-top 10px
 
 //USER CONSOLE
-#user-console
+#user-console-wrapper
   :height 50%
-  :overflow-y auto
   :border 1px solid black
+  .clear-console
+    :position absolute
+    :margin-top 3px
+    :right 30px
+#user-console
+  :width 100%
+  :height 100%
+  :overflow-y auto
   p.log
     :padding-left 5px
     :padding-bottom 2px
