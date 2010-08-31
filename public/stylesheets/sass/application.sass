@@ -38,9 +38,22 @@ body
       :padding 3px
       :border-bottom 0
       +border-radius(5px, top)
+      :overflow hidden
+      &.published
+        :color green
+      .name
+        :float left
+        :margin-right 5px
+      form
+        :float left
+        .publishing-actions
+          :margin-top 3px
+          :display none
       &.selected
         :cursor default
         :background-color white
+        .publishing-actions
+          :display block
 
   #user_ai
     :width 100%

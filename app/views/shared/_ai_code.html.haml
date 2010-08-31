@@ -11,7 +11,16 @@
           - f.buttons do
             = f.commit_button 'Save', :button_html => {:class => 'commit'}
       - current_user.ai_implementations.each do |ai|
-        %li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, ai), :class => ai == @recent_ai ? 'selected' : nil}= ai.name
+        - ai_class = ai == @recent_ai ? 'selected ' : ''
+        - ai_class << (ai.published? ? 'published' : 'unpublished')
+        %li.load-ai-code{:'data-service-url' => user_ai_implementation_path(current_user, ai), :class => ai_class}
+          .name= ai.name
+          - form_for [current_user, ai], :html => {:class => 'publishing-form'} do |f|
+            = f.hidden_field :published, :id => '', :class => 'publish-input'
+            .publishing-actions
+              = f.submit 'Publish', :class => 'publish', :style => (ai.published? ? 'display:none' : nil), :id => nil, :'data-publish' => 1
+              = f.submit 'Unpublish', :class => 'unpublish', :style => (ai.published? ? nil : 'display:none'), :id => nil, :'data-publish' => 0
+
 
   #ai-code-content
     = text_area_tag :user_ai, @recent_ai.code, :autocomplete => 'off'

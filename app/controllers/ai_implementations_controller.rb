@@ -12,7 +12,7 @@ class AiImplementationsController < ApplicationController
     @ai = current_user.ai_implementations.find(params[:id])
     @ai.update_attributes(params[:ai_implementation])
     respond_to do |wants|
-      wants.json {render :json => {:ai_id => @ai.id}}
+      wants.json { render :json => @ai.to_json }
     end
   end
 
