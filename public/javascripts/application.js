@@ -24,7 +24,7 @@ var WindowHandler = function(){
     //Left Side
     var fullHeight = $('#container').height() - $('#footer').height();
     var otherItemsHeight = $('#ai-code-header').height() + $('#ai-code-footer').height();
-    $('#ai-code-content').height(fullHeight - otherItemsHeight);
+    $('#ai-code-content').height(fullHeight - otherItemsHeight - 2);
     
     //Right side
     // need to subtract 21 for the heading padding, and 10 for the tic tac toe padding, and 2 for good measure :(
@@ -41,4 +41,6 @@ $(document).ready(function(){
     WindowHandler.resize();
   });
   WindowHandler.resize();
+  //damn you Chrome! :(
+  setTimeout("WindowHandler.resize();", 100);
 });

@@ -1,8 +1,11 @@
-body {
+html {
   height: 100%; }
-  body #container {
-    height: inherit;
-    margin: 0 10px; }
+  html body {
+    height: 100%; }
+
+#container {
+  height: inherit;
+  margin: 0 10px; }
 
 #ai-code-wrapper {
   width: 40%;
