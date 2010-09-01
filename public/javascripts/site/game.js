@@ -8,7 +8,7 @@ $('.reset-board').live('click', function(ev){
 $('.start-game').live('click', function(ev){
   ev.preventDefault();
   Board.reset();
-  Account.startGame();
+  // Account.startGame();
   return false;
 });
 
@@ -135,6 +135,7 @@ var Board = function(){
   }
   
   function spaceHandler(ev, data){
+    AIMaker.ensureCurrentCode();
     if(data == null){
       data= {player: 'user'};
     }
@@ -156,7 +157,7 @@ var Board = function(){
          return;
        }
     }
-    Account.markMove(data.player, $(this).attr('data-space-id'));
+    // Account.markMove(data.player, $(this).attr('data-space-id'));
   };
   
   function spaceIdsFor(player){

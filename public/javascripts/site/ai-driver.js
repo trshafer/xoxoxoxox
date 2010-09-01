@@ -6,11 +6,20 @@ var AIDriver = function(){
   
   function move(){
     var response = ai.move();
-    elem = $(response);
-    if(isInt(elem.get(0))){
-      elem = $('#space-'+elem.get(0));
+    var elem = $(response);
+    if(isInt(response)){
+      elem = $('#space-'+response);
     }
-    if(elem.hasClass('space')){
+    else if(isInt(elem.get(0))){
+      elem = $('#space-'+elem.get(0));
+    }else{
+      elem = $(response);
+    }
+    if(elem.hasClass('selected')){
+      Logger.systemError('AI returned a space which has already been selected.');
+      return false;
+    }
+    else if(elem.hasClass('space')){
       elem.trigger('click', {player: 'computer'});
       return true;
     }else{

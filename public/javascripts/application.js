@@ -9,9 +9,9 @@ function log(obj,msg) {
 }
 
 $(document).ready(function(){
+  AIMaker.init();
   if(!AIDriver.isInitialized()){
     if($('#user_ai').size() > 0){
-      $('#user_ai').blur();
     }else{
       AIDriver.init(RandomAI);
     }

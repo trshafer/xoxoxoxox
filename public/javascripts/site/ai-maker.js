@@ -1,3 +1,47 @@
+var AIMaker = new function(){
+  
+  var editor;
+  
+  function init(){
+    editor = CodeMirror.fromTextArea("user_ai", {
+      autoMatchParens: true,
+      lineNumbers: true,
+      saveFunction: function(ev){
+        $('#save-code').click();
+      },
+      parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
+      path: "/javascripts/frameworks/code-mirror/",
+      stylesheet: "/stylesheets/code-mirror/jscolors.css",
+      initCallback: function(){
+        AIMaker.ensureCurrentCode();
+      }
+    });
+  }
+  
+  function setCode(code){
+    editor.setCode(code);
+  }
+  
+  function getCode(){
+    return editor.getCode();
+  }
+  
+  function ensureCurrentCode(){
+    $('textarea#user_ai').val(getCode());
+    var userCode = $('textarea#user_ai').val() +"return {move:move};";
+    var UserAI = new Function(userCode)();
+    AIDriver.setAI(UserAI);
+  }
+  
+  
+  return {
+    init: init,
+    setCode: setCode,
+    getCode: getCode,
+    ensureCurrentCode: ensureCurrentCode
+  };
+}();
+
 $('a#add-code-show').live('click', function(){
   $('a#add-code-show').hide();
   $('a#add-code-hide').show();
@@ -73,9 +117,7 @@ $('li.load-ai-code:not(.selected)').live('click', function(){
 });
 
 $('textarea#user_ai').live('blur', function(){
-  var userCode = $('textarea#user_ai').val() +"return {move:move};";
-  var UserAI = new Function(userCode)();
-  AIDriver.setAI(UserAI);
+  AIMaker.ensureCurrentCode();
 });
 
 $(document).bind('keystrokes', {
@@ -83,40 +125,3 @@ keys:["ctrl+s"]
 }, function(event){
 	$('#save-code').click();
 });
-
-var AIMaker = new function(){
-  
-  var editor;
-  
-  function init(){
-    $(document).ready(function(){
-      editor = CodeMirror.fromTextArea("user_ai", {
-        autoMatchParens: true,
-        lineNumbers: true,
-        saveFunction: function(ev){
-          $('#save-code').click();
-        },
-        parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
-        path: "/javascripts/frameworks/code-mirror/",
-        stylesheet: "/stylesheets/code-mirror/jscolors.css"
-      });
-    });
-
-  }
-  
-  function setCode(code){
-    editor.setCode(code);
-  }
-  
-  function getCode(){
-    return editor.getCode();
-  }
-  
-  
-  return {
-    init: init,
-    setCode: setCode,
-    getCode: getCode
-  };
-}();
-AIMaker.init();
