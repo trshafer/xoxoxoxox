@@ -1,0 +1,32 @@
+#container.logged-out
+  :overflow hidden
+  #account-bar-wrapper
+    :background-image url(/images/login.png)
+    :background-position right
+    :background-repeat no-repeat
+    :float right
+    :height 600px
+    :width 485px
+    #logged-out-wrapper
+      :margin-top 352px
+      :margin-left 62px
+      :width 343px
+      form
+        li
+          :overflow hidden
+          :margin-bottom 10px
+          label
+            :float left
+            :width 90px
+          input[type=text], input[type=password]
+            :float left
+            :width 140px
+          &.boolean
+            label
+              :width 125px
+        fieldset.buttons
+          ol
+            :overflow hidden
+            li
+              :float left
+              :margin-right 20px

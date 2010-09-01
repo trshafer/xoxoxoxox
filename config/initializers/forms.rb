@@ -2,5 +2,5 @@
 #   "<span class='field_error'>#{html_tag}</span>"
 # end
 
-Formtastic::SemanticFormBuilder.inline_errors = :list
-Formtastic::SemanticFormBuilder.inline_order  = [:input, :hints, :errors]
+Formtastic::SemanticFormBuilder.inline_errors = :sentence
+# Formtastic::SemanticFormBuilder.inline_order  = [:input, :hints, :errors]

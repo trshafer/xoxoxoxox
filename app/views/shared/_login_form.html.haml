@@ -1,8 +1,9 @@
-- semantic_form_for @user_session, :url => user_session_path,:html => {:class => 'validate'} do |f|
-  = f.error_messages
+- semantic_form_for @user_session, :url => user_session_path,:html => {:class => 'validate', :style => 'display:none'} do |f|
+  = f.semantic_errors
   - f.inputs do
     = f.input :login
     = f.input :password
     = f.input :remember_me, :as => :boolean, :required => false
   - f.buttons do
     = f.commit_button 'Login'
+    %li= link_to_void 'cancel', :class => 'cancel-login-form'

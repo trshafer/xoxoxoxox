@@ -7,33 +7,33 @@ html {
   height: inherit;
   margin: 0 10px; }
 
-#ai-code-wrapper {
+#container.logged-in #ai-code-wrapper {
   width: 40%;
   height: inherit;
   float: left;
   padding-right: 1%;
   border-right: 1px solid black; }
-  #ai-code-wrapper #ai-code-list {
+  #container.logged-in #ai-code-wrapper #ai-code-list {
     padding-top: 5px;
     overflow: hidden;
     line-height: 25px; }
-    #ai-code-wrapper #ai-code-list li.add-form-wrapper {
+    #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper {
       overflow: hidden; }
-      #ai-code-wrapper #ai-code-list li.add-form-wrapper a, #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper a, #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
         float: left; }
-      #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper form {
         overflow: hidden;
         margin-left: 5px; }
-        #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset {
+        #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset {
           float: left; }
-          #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset input[type=text] {
+          #container.logged-in #ai-code-wrapper #ai-code-list li.add-form-wrapper form fieldset input[type=text] {
             width: 100px; }
-    #ai-code-wrapper #ai-code-list li {
+    #container.logged-in #ai-code-wrapper #ai-code-list li {
       float: left;
       margin-right: 10px;
       cursor: pointer;
       cursor: hand; }
-    #ai-code-wrapper #ai-code-list li.load-ai-code {
+    #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code {
       background-color: #cee3f8;
       border: 1px solid #5f99cf;
       padding: 3px;
@@ -45,150 +45,137 @@ html {
       -moz-border-radius-topright: 5px;
       -webkit-border-top-right-radius: 5px;
       overflow: hidden; }
-      #ai-code-wrapper #ai-code-list li.load-ai-code.published {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.published {
         color: green; }
-      #ai-code-wrapper #ai-code-list li.load-ai-code .name {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code .name {
         float: left;
         margin-right: 5px; }
-      #ai-code-wrapper #ai-code-list li.load-ai-code form {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code form {
         float: left; }
-        #ai-code-wrapper #ai-code-list li.load-ai-code form .publishing-actions {
+        #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code form .publishing-actions {
           margin-top: 3px;
           display: none; }
-      #ai-code-wrapper #ai-code-list li.load-ai-code.selected {
+      #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.selected {
         cursor: default;
         background-color: white; }
-        #ai-code-wrapper #ai-code-list li.load-ai-code.selected .publishing-actions {
+        #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.selected .publishing-actions {
           display: block; }
-  #ai-code-wrapper #user_ai {
+  #container.logged-in #ai-code-wrapper #user_ai {
     width: 100%;
     height: 100%;
     margin: 0; }
-
-.CodeMirror-wrapping {
+#container.logged-in .CodeMirror-wrapping {
   height: 100% !important;
   border: 1px solid black; }
-  .CodeMirror-wrapping .CodeMirror-line-numbers {
+  #container.logged-in .CodeMirror-wrapping .CodeMirror-line-numbers {
     font-size: 10pt;
     margin-top: 2px;
     font-family: monospace;
     line-height: 11pt; }
-    .CodeMirror-wrapping .CodeMirror-line-numbers div {
+    #container.logged-in .CodeMirror-wrapping .CodeMirror-line-numbers div {
       font-size: 10pt;
       font-family: monospace;
       line-height: 11pt; }
-
-#save-wrapper {
+#container.logged-in #save-wrapper {
   overflow: hidden; }
-  #save-wrapper #save-link {
+  #container.logged-in #save-wrapper #save-link {
     margin-right: 10px; }
-    #save-wrapper #save-link span {
+    #container.logged-in #save-wrapper #save-link span {
       font-size: 80%; }
-  #save-wrapper #save-loader {
+  #container.logged-in #save-wrapper #save-loader {
     margin-top: 7px; }
-  #save-wrapper div {
+  #container.logged-in #save-wrapper div {
     margin-top: 5px;
     float: left; }
-
-#content {
+#container.logged-in #content {
   width: 58%;
   margin-left: 41%;
   padding-left: 1%; }
-
-#header {
+#container.logged-in #header {
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   padding-top: 10px; }
-
-#board-wrapper {
+#container.logged-in #board-wrapper {
   margin-left: 5px; }
-
-#logged-in-wrapper {
+#container.logged-in #logged-in-wrapper {
   overflow: hidden; }
-  #logged-in-wrapper #logo {
+  #container.logged-in #logged-in-wrapper #logo {
     float: left; }
-    #logged-in-wrapper #logo h1, #logged-in-wrapper #logo h2 {
+    #container.logged-in #logged-in-wrapper #logo h1, #container.logged-in #logged-in-wrapper #logo h2 {
       float: left; }
-    #logged-in-wrapper #logo h1 {
+    #container.logged-in #logged-in-wrapper #logo h1 {
       margin-right: 2px;
       font-size: 1.5em; }
-    #logged-in-wrapper #logo h2 {
+    #container.logged-in #logged-in-wrapper #logo h2 {
       font-size: 1.3em;
       padding-top: 3px; }
-  #logged-in-wrapper #account {
+  #container.logged-in #logged-in-wrapper #account {
     float: right; }
-  #logged-in-wrapper #login-name {
+  #container.logged-in #logged-in-wrapper #login-name {
     float: left;
     margin-right: 20px;
     padding-top: 3px; }
-    #logged-in-wrapper #login-name span.name {
+    #container.logged-in #logged-in-wrapper #login-name span.name {
       font-weight: bold;
       font-size: 1.2em; }
-  #logged-in-wrapper #logout-link {
+  #container.logged-in #logged-in-wrapper #logout-link {
     padding-top: 5px;
     float: left; }
-
-#console-debug {
+#container.logged-in #console-debug {
   overflow: hidden; }
-
-.console-output {
+#container.logged-in .console-output {
   width: 180px;
   float: left;
   padding: 10px;
   margin: 10px;
   border: 1px solid black; }
-
-#tic-tac-toe {
+#container.logged-in #tic-tac-toe {
   padding-top: 10px; }
-
-#user-console-wrapper {
+#container.logged-in #user-console-wrapper {
   height: 50%;
   border: 1px solid black; }
-  #user-console-wrapper .clear-console {
+  #container.logged-in #user-console-wrapper .clear-console {
     position: absolute;
     margin-top: 3px;
     right: 30px; }
-
-#user-console {
+#container.logged-in #user-console {
   width: 100%;
   height: 100%;
   overflow-y: auto; }
-  #user-console p.log {
+  #container.logged-in #user-console p.log {
     padding-left: 5px;
     padding-bottom: 2px;
     padding-top: 2px;
     border-bottom: 1px solid black; }
-    #user-console p.log.warn {
+    #container.logged-in #user-console p.log.warn {
       background-color: yellow; }
-    #user-console p.log.error {
+    #container.logged-in #user-console p.log.error {
       background-color: red; }
-    #user-console p.log.system-error {
+    #container.logged-in #user-console p.log.system-error {
       background-color: black;
       color: white;
       border-bottom: 1px solid white; }
-
-#board-info {
+#container.logged-in #board-info {
   overflow: hidden; }
-  #board-info #board-actions {
+  #container.logged-in #board-info #board-actions {
     float: left;
     overflow: hidden; }
-    #board-info #board-actions #start-new-game-link {
+    #container.logged-in #board-info #board-actions #start-new-game-link {
       margin-right: 10px; }
-    #board-info #board-actions #competing-ai {
+    #container.logged-in #board-info #board-actions #competing-ai {
       margin-right: 10px; }
-    #board-info #board-actions div {
+    #container.logged-in #board-info #board-actions div {
       float: left; }
-  #board-info #end-game-results {
+  #container.logged-in #board-info #end-game-results {
     float: right; }
-
-#board-wrapper {
+#container.logged-in #board-wrapper {
   margin: auto;
   height: 50%; }
-  #board-wrapper #board-wrapper {
+  #container.logged-in #board-wrapper #board-wrapper {
     height: 100%; }
-  #board-wrapper #board {
+  #container.logged-in #board-wrapper #board {
     overflow: hidden; }
-  #board-wrapper .space {
+  #container.logged-in #board-wrapper .space {
     cursor: pointer;
     cursor: hand;
     float: left;
@@ -197,19 +184,19 @@ html {
     border: 1px solid black;
     background-repeat: no-repeat;
     background-position: center; }
-    #board-wrapper .space.unselected {
+    #container.logged-in #board-wrapper .space.unselected {
       background-image: url(/images/spaces/blank.png); }
-    #board-wrapper .space.selected.user, #board-wrapper .space.selected.competitor {
+    #container.logged-in #board-wrapper .space.selected.user, #container.logged-in #board-wrapper .space.selected.competitor {
       background-image: url(/images/spaces/x.png); }
-    #board-wrapper .space.selected.computer {
+    #container.logged-in #board-wrapper .space.selected.computer {
       background-image: url(/images/spaces/o.png); }
-    #board-wrapper .space.selected.winning-space {
+    #container.logged-in #board-wrapper .space.selected.winning-space {
       background-color: green; }
-  #board-wrapper #space-0, #board-wrapper #space-1, #board-wrapper #space-2 {
+  #container.logged-in #board-wrapper #space-0, #container.logged-in #board-wrapper #space-1, #container.logged-in #board-wrapper #space-2 {
     border-top: none; }
-  #board-wrapper #space-6, #board-wrapper #space-7, #board-wrapper #space-8 {
+  #container.logged-in #board-wrapper #space-6, #container.logged-in #board-wrapper #space-7, #container.logged-in #board-wrapper #space-8 {
     border-bottom: none; }
-  #board-wrapper #space-0, #board-wrapper #space-3, #board-wrapper #space-6 {
+  #container.logged-in #board-wrapper #space-0, #container.logged-in #board-wrapper #space-3, #container.logged-in #board-wrapper #space-6 {
     border-left: none; }
-  #board-wrapper #space-2, #board-wrapper #space-5, #board-wrapper #space-8 {
+  #container.logged-in #board-wrapper #space-2, #container.logged-in #board-wrapper #space-5, #container.logged-in #board-wrapper #space-8 {
     border-right: none; }

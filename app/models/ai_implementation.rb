@@ -19,7 +19,8 @@ self.code = <<-eos
 // to get computer spaces call: Board.spaceIdsFor('computer');
 // to get empty spaces call: Board.emptySpaceIds();
 // To see if you have a winning set use: Rules.playerWins(playerIdsArray);
-// if you get frustrated, you can alwasys go back to Board.emptySpaceIds().random();
+// if you get frustrated, you can always go back to Board.emptySpaceIds().random();
+// Logger methods: Logger.info('some info'), Logger.warn('a warning'), Logger.error('the error');
 function move(){
   Logger.info('Making move from #{self.name}');
   return Board.emptySpaceIds().random();
