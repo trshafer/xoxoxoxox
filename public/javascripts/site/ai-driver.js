@@ -1,10 +1,40 @@
+$('#other_ais').live('change', function(){
+  if($(this).val() == ''){
+    $('#run-simulation-link').hide();
+  }else{
+    $('#run-simulation-link').show();
+  }
+});
+
+$('.run-competition').live('click', function(){
+  var competitorAI = AIMaker.wrapCode($('#other_ais').val());
+  AIDriver.setCompetitorAI(competitorAI);
+  Board.simulate();
+});
+
+
 var AIDriver = function(){
-  var ai;
+  var userAI;
+  var competitorAI;
   function init(aiImplementation){
-    ai = aiImplementation;
+    userAI = aiImplementation;
   }
   
-  function move(){
+  function setCompetitorAI(aiImplementation){
+    competitorAI = aiImplementation;
+  }
+  
+  function moveCompetitor(){
+   return move(competitorAI, 'competitor');
+  }
+  
+  function move(ai, player){
+    if(ai == null){
+      ai = userAI;
+    }
+    if(player == null){
+      player = 'computer';
+    }
     var response = ai.move();
     var elem = $(response);
     if(isInt(response)){
@@ -20,7 +50,7 @@ var AIDriver = function(){
       return false;
     }
     else if(elem.hasClass('space')){
-      elem.trigger('click', {player: 'computer'});
+      elem.trigger('click', {player: player});
       return true;
     }else{
       Logger.systemError('AI did not return an Integer between 0-8.');
@@ -37,13 +67,15 @@ var AIDriver = function(){
   }
   
   function isInitialized(){
-    return ai != null;
+    return userAI != null;
   }
   
   return {
     init: init,
     setAI: init,
+    setCompetitorAI: setCompetitorAI,
     move: move,
+    moveCompetitor: moveCompetitor,
     isInitialized: isInitialized
   };
 }();

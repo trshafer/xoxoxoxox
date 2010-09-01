@@ -28,9 +28,12 @@ var AIMaker = new function(){
   
   function ensureCurrentCode(){
     $('textarea#user_ai').val(getCode());
-    var userCode = $('textarea#user_ai').val() +"return {move:move};";
-    var UserAI = new Function(userCode)();
+    var UserAI = wrapCode($('textarea#user_ai').val());
     AIDriver.setAI(UserAI);
+  }
+  
+  function wrapCode(code){
+    return new Function(code +"return {move:move};")();
   }
   
   
@@ -38,7 +41,8 @@ var AIMaker = new function(){
     init: init,
     setCode: setCode,
     getCode: getCode,
-    ensureCurrentCode: ensureCurrentCode
+    ensureCurrentCode: ensureCurrentCode,
+    wrapCode: wrapCode
   };
 }();
 

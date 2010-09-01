@@ -172,6 +172,13 @@ html
   :overflow hidden
   #board-actions
     :float left
+    :overflow hidden
+    #start-new-game-link
+      :margin-right 10px
+    #competing-ai 
+      :margin-right 10px
+    div
+      :float left
   #end-game-results
     :float right
 #board-wrapper
@@ -193,7 +200,7 @@ html
     &.unselected
       :background-image url(/images/spaces/blank.png)
     &.selected
-      &.user
+      &.user, &.competitor
         :background-image url(/images/spaces/x.png)
       &.computer
         :background-image url(/images/spaces/o.png)

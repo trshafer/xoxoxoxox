@@ -1,7 +1,11 @@
 #board-wrapper
   #board-info
     #board-actions
-      = link_to_void 'Start New Game', :class => 'start-game'
+      #start-new-game-link= link_to_void 'Start New Game', :class => 'start-game'
+      #competing-ai
+        = label_tag :other_ais, 'Other student\'s published AIs:'
+        = select_tag :other_ais, options_for_select(other_ai_select_options)
+      #run-simulation-link{:style => 'display:none'}= link_to_void 'Run', :class => 'run-competition'
     %p#end-game-results
   #board
     - 9.times do |index|

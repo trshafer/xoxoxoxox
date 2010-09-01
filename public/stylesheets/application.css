@@ -170,7 +170,14 @@ html {
 #board-info {
   overflow: hidden; }
   #board-info #board-actions {
-    float: left; }
+    float: left;
+    overflow: hidden; }
+    #board-info #board-actions #start-new-game-link {
+      margin-right: 10px; }
+    #board-info #board-actions #competing-ai {
+      margin-right: 10px; }
+    #board-info #board-actions div {
+      float: left; }
   #board-info #end-game-results {
     float: right; }
 
@@ -192,7 +199,7 @@ html {
     background-position: center; }
     #board-wrapper .space.unselected {
       background-image: url(/images/spaces/blank.png); }
-    #board-wrapper .space.selected.user {
+    #board-wrapper .space.selected.user, #board-wrapper .space.selected.competitor {
       background-image: url(/images/spaces/x.png); }
     #board-wrapper .space.selected.computer {
       background-image: url(/images/spaces/o.png); }
