@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
         find_last_ai
         wants.js #create.js.rjs
       else
-        wants.js {render :action => :create_errors}
+        wants.js {render :action => :create_errors, :status => 403}
       end
     end
   end

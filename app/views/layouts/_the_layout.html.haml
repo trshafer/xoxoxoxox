@@ -1,0 +1,10 @@
+- if @current_user.present?
+  #ai-code-wrapper
+    = render :partial => 'shared/ai_code'
+  #content
+    #header
+      = render :partial => 'shared/account_bar'
+    = yield
+- else
+  #content
+    = render :partial => 'shared/account_bar'

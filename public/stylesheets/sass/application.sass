@@ -8,209 +8,210 @@ html
   :margin 0 10px
 
 //CODE LIST
-#ai-code-wrapper
-  :width 40%
-  :height inherit
-  :float left
-  :padding-right 1%
-  :border-right 1px solid black
-  #ai-code-list
-    :padding-top 5px
-    :overflow hidden
-    :line-height 25px
-    li.add-form-wrapper
+#container.logged-in
+  #ai-code-wrapper
+    :width 40%
+    :height inherit
+    :float left
+    :padding-right 1%
+    :border-right 1px solid black
+    #ai-code-list
+      :padding-top 5px
       :overflow hidden
-      a, form
-        :float left
-      form
+      :line-height 25px
+      li.add-form-wrapper
         :overflow hidden
-        :margin-left 5px
-        fieldset
+        a, form
           :float left
-          input[type=text]
-            :width 100px
-    li
-      :float left
-      :margin-right 10px
-      :cursor pointer
-      :cursor hand
-    li.load-ai-code
-      :background-color #CEE3F8
-      :border 1px solid #5F99CF
-      :padding 3px
-      :border-bottom 0
-      +border-radius(5px, top)
-      :overflow hidden
-      &.published
-        :color green
-      .name
+        form
+          :overflow hidden
+          :margin-left 5px
+          fieldset
+            :float left
+            input[type=text]
+              :width 100px
+      li
         :float left
-        :margin-right 5px
-      form
-        :float left
-        .publishing-actions
-          :margin-top 3px
-          :display none
-      &.selected
-        :cursor default
-        :background-color white
-        .publishing-actions
-          :display block
+        :margin-right 10px
+        :cursor pointer
+        :cursor hand
+      li.load-ai-code
+        :background-color #CEE3F8
+        :border 1px solid #5F99CF
+        :padding 3px
+        :border-bottom 0
+        +border-radius(5px, top)
+        :overflow hidden
+        &.published
+          :color green
+        .name
+          :float left
+          :margin-right 5px
+        form
+          :float left
+          .publishing-actions
+            :margin-top 3px
+            :display none
+        &.selected
+          :cursor default
+          :background-color white
+          .publishing-actions
+            :display block
 
-  #user_ai
-    :width 100%
-    :height 100%
-    :margin 0
-//CODE-MIRROR
-.CodeMirror-wrapping
-  :height 100% !important
-  :border 1px solid black
-  .CodeMirror-line-numbers
-    :font-size 10pt
-    :margin-top 2px
-
-    :font-family monospace
-    :line-height 11pt
-    div
+    #user_ai
+      :width 100%
+      :height 100%
+      :margin 0
+  //CODE-MIRROR
+  .CodeMirror-wrapping
+    :height 100% !important
+    :border 1px solid black
+    .CodeMirror-line-numbers
       :font-size 10pt
+      :margin-top 2px
+
       :font-family monospace
       :line-height 11pt
+      div
+        :font-size 10pt
+        :font-family monospace
+        :line-height 11pt
 
 
-//AI FOOTER
-#save-wrapper
-  :overflow hidden
-  #save-link
-    :margin-right 10px
-    span
-      :font-size 80%
-  #save-loader
-    :margin-top 7px
-  div
-    :margin-top 5px
-    :float left
-  
-  
-#content
-  :width 58%
-  :margin-left 41%
-  :padding-left 1%
-  
-//HEADER
-#header
-  :border-bottom 1px solid black
-  :padding-bottom 10px
-  :padding-top 10px
-#board-wrapper
-  :margin-left 5px
-#logged-in-wrapper
-  :overflow hidden
-  #logo
-    :float left
-    h1, h2
-      :float left
-    h1
-      :margin-right 2px
-      :font-size 1.5em
-    h2
-      :font-size 1.3em
-      :padding-top 3px
-  #account
-    :float right
-  #login-name
-    :float left
-    :margin-right 20px
-    :padding-top 3px
-    span.name
-      :font-weight bold
-      :font-size 1.2em
-  #logout-link
-    :padding-top 5px
-    :float left
-
-#console-debug
-  :overflow hidden
-.console-output
-  :width 180px
-  :float left
-  :padding 10px
-  :margin 10px
-  :border 1px solid black
-
-#tic-tac-toe
-  :padding-top 10px
-
-//USER CONSOLE
-#user-console-wrapper
-  :height 50%
-  :border 1px solid black
-  .clear-console
-    :position absolute
-    :margin-top 3px
-    :right 30px
-#user-console
-  :width 100%
-  :height 100%
-  :overflow-y auto
-  p.log
-    :padding-left 5px
-    :padding-bottom 2px
-    :padding-top 2px
-    :border-bottom 1px solid black
-    &.warn
-      :background-color yellow
-    &.error
-      :background-color red
-    &.system-error
-      :background-color black
-      :color white
-      :border-bottom 1px solid white
-
-  
-//BOARD
-#board-info
-  :overflow hidden
-  #board-actions
-    :float left
+  //AI FOOTER
+  #save-wrapper
     :overflow hidden
-    #start-new-game-link
+    #save-link
       :margin-right 10px
-    #competing-ai 
-      :margin-right 10px
+      span
+        :font-size 80%
+    #save-loader
+      :margin-top 7px
     div
+      :margin-top 5px
       :float left
-  #end-game-results
-    :float right
-#board-wrapper
-  :margin auto
-  :height 50%
+  
+  
+  #content
+    :width 58%
+    :margin-left 41%
+    :padding-left 1%
+  
+  //HEADER
+  #header
+    :border-bottom 1px solid black
+    :padding-bottom 10px
+    :padding-top 10px
   #board-wrapper
-    :height 100%
-  #board
+    :margin-left 5px
+  #logged-in-wrapper
     :overflow hidden
-  .space
-    :cursor pointer
-    :cursor hand
+    #logo
+      :float left
+      h1, h2
+        :float left
+      h1
+        :margin-right 2px
+        :font-size 1.5em
+      h2
+        :font-size 1.3em
+        :padding-top 3px
+    #account
+      :float right
+    #login-name
+      :float left
+      :margin-right 20px
+      :padding-top 3px
+      span.name
+        :font-weight bold
+        :font-size 1.2em
+    #logout-link
+      :padding-top 5px
+      :float left
+
+  #console-debug
+    :overflow hidden
+  .console-output
+    :width 180px
     :float left
-    :width 33%
-    :height 31%
+    :padding 10px
+    :margin 10px
     :border 1px solid black
-    :background-repeat no-repeat
-    :background-position center
-    &.unselected
-      :background-image url(/images/spaces/blank.png)
-    &.selected
-      &.user, &.competitor
-        :background-image url(/images/spaces/x.png)
-      &.computer
-        :background-image url(/images/spaces/o.png)
-      &.winning-space
-        :background-color green
-  #space-0, #space-1, #space-2
-    :border-top none
-  #space-6, #space-7, #space-8
-    :border-bottom none
-  #space-0, #space-3, #space-6
-    :border-left none
-  #space-2, #space-5, #space-8
-    :border-right none
+
+  #tic-tac-toe
+    :padding-top 10px
+
+  //USER CONSOLE
+  #user-console-wrapper
+    :height 50%
+    :border 1px solid black
+    .clear-console
+      :position absolute
+      :margin-top 3px
+      :right 30px
+  #user-console
+    :width 100%
+    :height 100%
+    :overflow-y auto
+    p.log
+      :padding-left 5px
+      :padding-bottom 2px
+      :padding-top 2px
+      :border-bottom 1px solid black
+      &.warn
+        :background-color yellow
+      &.error
+        :background-color red
+      &.system-error
+        :background-color black
+        :color white
+        :border-bottom 1px solid white
+
+  
+  //BOARD
+  #board-info
+    :overflow hidden
+    #board-actions
+      :float left
+      :overflow hidden
+      #start-new-game-link
+        :margin-right 10px
+      #competing-ai 
+        :margin-right 10px
+      div
+        :float left
+    #end-game-results
+      :float right
+  #board-wrapper
+    :margin auto
+    :height 50%
+    #board-wrapper
+      :height 100%
+    #board
+      :overflow hidden
+    .space
+      :cursor pointer
+      :cursor hand
+      :float left
+      :width 33%
+      :height 31%
+      :border 1px solid black
+      :background-repeat no-repeat
+      :background-position center
+      &.unselected
+        :background-image url(/images/spaces/blank.png)
+      &.selected
+        &.user, &.competitor
+          :background-image url(/images/spaces/x.png)
+        &.computer
+          :background-image url(/images/spaces/o.png)
+        &.winning-space
+          :background-color green
+    #space-0, #space-1, #space-2
+      :border-top none
+    #space-6, #space-7, #space-8
+      :border-bottom none
+    #space-0, #space-3, #space-6
+      :border-left none
+    #space-2, #space-5, #space-8
+      :border-right none

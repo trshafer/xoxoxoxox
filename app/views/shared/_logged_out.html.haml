@@ -1,6 +1,7 @@
 #logged-out-wrapper
-  = link_to_void 'login', :id => 'login-link'
-  = link_to_void 'signup', :id => 'signup-link'
+  #login-signup-link-wrapper
+    = link_to_void 'login', :id => 'login-link'
+    = link_to_void 'signup', :id => 'signup-link'
   #login-form-wrapper= render :partial => 'shared/login_form'
   #signup-form-wrapper= render :partial => 'shared/signup_form'
   :javascript

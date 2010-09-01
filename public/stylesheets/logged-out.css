@@ -1,0 +1,29 @@
+#container.logged-out {
+  overflow: hidden; }
+  #container.logged-out #account-bar-wrapper {
+    background-image: url(/images/login.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    float: right;
+    height: 600px;
+    width: 485px; }
+    #container.logged-out #account-bar-wrapper #logged-out-wrapper {
+      margin-top: 352px;
+      margin-left: 62px;
+      width: 343px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form li {
+        overflow: hidden;
+        margin-bottom: 10px; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li label {
+          float: left;
+          width: 90px; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=text], #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=password] {
+          float: left;
+          width: 140px; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li.boolean label {
+          width: 125px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol {
+        overflow: hidden; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol li {
+          float: left;
+          margin-right: 20px; }

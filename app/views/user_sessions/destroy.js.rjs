@@ -1,2 +1,1 @@
-page['header'].replace_html :partial => 'shared/logged_out'
-page['#ai-code-wrapper'].replace_html ''
+page['#container'].replace_html :partial => 'layouts/the_layout'

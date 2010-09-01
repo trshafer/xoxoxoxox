@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   def setup_blank_user
     @user_session = UserSession.new
     @user = User.new
+    @current_user = nil
   end
   
   def current_user_session

@@ -2,11 +2,6 @@
   %head
     = render :partial => 'shared/head'
   %body
-    #container
-      #ai-code-wrapper
-        = render :partial => 'shared/ai_code'
-      #content
-        #header
-          = render :partial => 'shared/account_bar'
-        = yield
+    #container{:class =>  current_user.present? ? 'logged-in' : 'logged-out'}
+      = render :partial => 'layouts/the_layout'
       #footer

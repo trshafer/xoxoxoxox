@@ -9,15 +9,22 @@ function log(obj,msg) {
 }
 
 $(document).ready(function(){
-  AIMaker.init();
-  if(!AIDriver.isInitialized()){
-    if($('#user_ai').size() > 0){
-    }else{
-      AIDriver.init(RandomAI);
+  ReadyHandler.init();
+});
+
+var ReadyHandler = function(){
+  
+  function init(){
+    if($('#container').hasClass('logged-in')){
+      AIMaker.init();
+      $('a.start-game').first().click();      
     }
   }
-    $('a.start-game').first().click();
-});
+  
+  return {
+    init: init
+  };
+}();
 
 var WindowHandler = function(){
   function resize(){
