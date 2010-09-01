@@ -16,7 +16,7 @@ var AIDriver = function(){
       elem = $(response);
     }
     if(elem.hasClass('selected')){
-      Logger.systemError('AI returned a space which has already been selected.');
+      Logger.systemError('AI returned space '+ elem.attr('data-space-id')+', which has already been selected.');
       return false;
     }
     else if(elem.hasClass('space')){
