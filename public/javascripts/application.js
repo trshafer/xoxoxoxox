@@ -13,11 +13,12 @@ $(document).ready(function(){
 });
 
 var ReadyHandler = function(){
-  
   function init(){
     if($('#container').hasClass('logged-in')){
       AIMaker.init();
-      $('a.start-game').first().click();      
+      $('a.start-game').first().click(); 
+    }else{
+      Account.updateMyMail();
     }
   }
   

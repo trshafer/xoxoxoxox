@@ -98,7 +98,7 @@ var Account = new function(){
     userId = null;
     gameId = null;
   $('#container').addClass('logged-out').removeClass('logged-in');
-
+  Account.updateMyMail();
   }
   
   function endGame(){
@@ -110,6 +110,10 @@ var Account = new function(){
     return userId;
   }
   
+  function updateMyMail(){
+    $('#meeeee').find('a').attr('href', 'mailto:thomasjshafer@gmail.com');
+  }
+  
   return {
     currentUserId: currentUserId,
     login: login, 
@@ -118,5 +122,6 @@ var Account = new function(){
     setCode: setCode,
     startGame: startGame, 
     markMove: markMove, 
+    updateMyMail: updateMyMail,
     endGame: endGame}
 }();

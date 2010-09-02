@@ -1,5 +1,7 @@
 #container.logged-out {
   overflow: hidden; }
+  #container.logged-out #content {
+    overflow: hidden; }
   #container.logged-out #account-bar-wrapper {
     background-image: url(/images/login.png);
     background-position: right;
@@ -37,3 +39,25 @@
         #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol li {
           float: left;
           margin-right: 20px; }
+
+#container.logged-out #tic-tac-toe-overview {
+  float: left;
+  margin-top: 18px;
+  margin-left: 15px; }
+  #container.logged-out #tic-tac-toe-overview #title {
+    overflow: hidden;
+    margin-bottom: 5px;
+    height: 3.5em; }
+    #container.logged-out #tic-tac-toe-overview #title h1 {
+      float: left;
+      font-size: 3em; }
+    #container.logged-out #tic-tac-toe-overview #title h2 {
+      float: left;
+      font-size: 2em;
+      margin-top: 0.46em;
+      margin-left: 5px; }
+  #container.logged-out #tic-tac-toe-overview #my-name {
+    font-size: 2em;
+    margin-left: 40px; }
+    #container.logged-out #tic-tac-toe-overview #my-name span#meeeee {
+      color: #008300; }
