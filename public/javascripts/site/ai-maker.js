@@ -65,7 +65,6 @@ $('a#add-code-show').live('click', function(){
   WindowHandler.resize();
 });
 
-//TODO render list item from view not create on client
 $('.publishing-actions input[type=submit]').live('click',function(ev){
   ev.preventDefault();
   var publishForm = $(this).closest('form');

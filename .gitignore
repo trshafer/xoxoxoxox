@@ -5,3 +5,4 @@ tmp/*
 lib/reload_server/*
 Capfile
 config/deploy.rb
+TODO.txt
