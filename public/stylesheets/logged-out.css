@@ -11,6 +11,16 @@
       margin-top: 352px;
       margin-left: 62px;
       width: 343px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper {
+        font-size: 2em;
+        text-align: center;
+        padding-top: 32px; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper #show-login-form-link {
+          margin-bottom: 20px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid black; }
+        #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper a {
+          text-decoration: none; }
       #container.logged-out #account-bar-wrapper #logged-out-wrapper form li {
         overflow: hidden;
         margin-bottom: 10px; }
