@@ -3,6 +3,14 @@ var AIMaker = new function(){
   var editor;
   
   function init(){
+    // if(editor == null){
+      makeFreshEditor();
+    // }else{
+    //   updateEditor();
+    // }
+  }
+  
+  function makeFreshEditor(){
     editor = CodeMirror.fromTextArea("user_ai", {
       autoMatchParens: true,
       lineNumbers: true,
@@ -16,6 +24,10 @@ var AIMaker = new function(){
         AIMaker.ensureCurrentCode();
       }
     });
+  }
+  
+  function updateEditor(){
+    ensureCurrentCode();
   }
   
   function setCode(code){

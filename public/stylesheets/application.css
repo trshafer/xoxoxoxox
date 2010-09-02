@@ -171,10 +171,9 @@ html {
 #container.logged-in #board-wrapper {
   margin: auto;
   height: 50%; }
-  #container.logged-in #board-wrapper #board-wrapper {
-    height: 100%; }
   #container.logged-in #board-wrapper #board {
-    overflow: hidden; }
+    overflow: hidden;
+    height: 99%; }
   #container.logged-in #board-wrapper .space {
     cursor: pointer;
     cursor: hand;

@@ -464,6 +464,7 @@ var CodeMirror = (function(){
   };
 
   CodeMirror.fromTextArea = function(area, options) {
+    // debugger
     if (typeof area == "string")
       area = document.getElementById(area);
 

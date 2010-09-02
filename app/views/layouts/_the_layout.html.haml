@@ -4,7 +4,11 @@
   #content
     #header
       = render :partial => 'shared/account_bar'
-    = yield
+    #tic-tac-toe
+      = render :partial => 'dashboards/board'
+      #user-console-wrapper
+        = link_to_void 'Clear', :class => 'clear-console'
+        #user-console
 - else
   #content
     = render :partial => 'shared/account_bar'

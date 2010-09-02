@@ -1,7 +1,9 @@
+!!! 5
 %html
   %head
+    %title Reddit School Of Code
     = render :partial => 'shared/head'
   %body
     #container{:class =>  current_user.present? ? 'logged-in' : 'logged-out'}
-      = render :partial => 'layouts/the_layout'
+      = yield
       #footer
