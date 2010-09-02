@@ -25,7 +25,6 @@ $('form#new_user_session').live('submit', function(ev){
   ev.preventDefault();
   $(this).ajaxSubmit({success: function(request, statusText, xhr){
     WindowHandler.resize();
-
     ReadyHandler.init();
   }, error: function(request, statusText, errorThrown){
     eval(request.responseText);
@@ -38,7 +37,6 @@ $('form#new_user').live('submit', function(ev){
   ev.preventDefault();
   $(this).ajaxSubmit({success: function(request, statusText, xhr){
     WindowHandler.resize();
-
     ReadyHandler.init();
   }, error: function(request, statusText, errorThrown){
     eval(request.responseText);
