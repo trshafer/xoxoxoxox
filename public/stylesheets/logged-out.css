@@ -47,14 +47,14 @@
   #container.logged-out #tic-tac-toe-overview #title {
     overflow: hidden;
     margin-bottom: 5px;
-    height: 3.5em; }
+    height: 3em; }
     #container.logged-out #tic-tac-toe-overview #title h1 {
       float: left;
-      font-size: 3em; }
+      font-size: 2.2em; }
     #container.logged-out #tic-tac-toe-overview #title h2 {
       float: left;
-      font-size: 2em;
-      margin-top: 0.46em;
+      font-size: 1.7em;
+      margin-top: 0.3em;
       margin-left: 5px; }
   #container.logged-out #tic-tac-toe-overview #my-name {
     font-size: 2em;
