@@ -5,3 +5,11 @@
   #my-name
     %span by
     %span#meeeee= mail_to nil, 'Thomas Shafer'
+  #overview
+    %ul#overview-tabs
+      %li= link_to 'Introduction', '#introduction'
+      %li= link_to 'Technical Specs for The Reddit Admins', '#tech-specs'
+    #introduction
+      The Intro
+    #tech-specs{:class => 'ui-tabs-hide'}
+      Tech Specs

@@ -1,3 +1,5 @@
+@import base.sass
+
 #container.logged-out
   :overflow hidden
   #content
@@ -66,3 +68,34 @@
       :margin-left 40px
       span#meeeee
         :color #008300
+  #overview
+    :margin-top 20px
+    ul#overview-tabs
+      :overflow hidden
+      :border-bottom 1px solid black
+
+      li
+        :float left
+        :margin-right 10px
+        :cursor pointer
+        :cursor hand
+        a
+          :display block
+          :background-color #CEE3F8
+          :border 1px solid #5F99CF
+          :padding 3px
+          :border-bottom 0
+          +border-radius(5px, top)
+          :text-decoration none
+          :color black
+        &.ui-tabs-selected
+          a
+            :background-color white
+          &:hover
+            a
+              :background-color white
+        &:hover
+          a
+            :background-color #F2F5FF
+    .ui-tabs-hide
+      :display none

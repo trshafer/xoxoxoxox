@@ -60,8 +60,12 @@ html {
       #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.selected {
         cursor: default;
         background-color: white; }
+        #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.selected:hover {
+          background-color: white; }
         #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code.selected .publishing-actions {
           display: block; }
+      #container.logged-in #ai-code-wrapper #ai-code-list li.load-ai-code:hover {
+        background-color: #f2f5ff; }
   #container.logged-in #ai-code-wrapper #user_ai {
     width: 100%;
     height: 100%;

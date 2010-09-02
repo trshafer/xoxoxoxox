@@ -97,8 +97,8 @@ var Account = new function(){
   function logout(){
     userId = null;
     gameId = null;
-  $('#container').addClass('logged-out').removeClass('logged-in');
-  Account.updateMyMail();
+    $('#container').addClass('logged-out').removeClass('logged-in');
+    Account.initHomeScreen();
   }
   
   function endGame(){
@@ -110,8 +110,9 @@ var Account = new function(){
     return userId;
   }
   
-  function updateMyMail(){
+  function initHomeScreen(){
     $('#meeeee').find('a').attr('href', 'mailto:thomasjshafer@gmail.com');
+    $('#overview').tabs();
   }
   
   return {
@@ -122,6 +123,6 @@ var Account = new function(){
     setCode: setCode,
     startGame: startGame, 
     markMove: markMove, 
-    updateMyMail: updateMyMail,
+    initHomeScreen: initHomeScreen,
     endGame: endGame}
 }();

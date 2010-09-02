@@ -18,7 +18,7 @@ var ReadyHandler = function(){
       AIMaker.init();
       $('a.start-game').first().click(); 
     }else{
-      Account.updateMyMail();
+      Account.initHomeScreen();
     }
   }
   
