@@ -3,3 +3,5 @@ log/*.log
 config/database.yml
 tmp/*
 lib/reload_server/*
+Capfile
+config/deploy.rb
