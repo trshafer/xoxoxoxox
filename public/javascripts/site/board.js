@@ -94,7 +94,7 @@ var Board = function(){
   function getSpaceIdsFor(player){
     return $('.space.selected.'+player).map(function(index, elem){
       return parseInt($(this).attr('data-space-id'), 10);
-    });
+    }).toArray();
   }
   
   function getSpaceIdsForAI(){
@@ -105,10 +105,10 @@ var Board = function(){
     return getSpaceIdsFor('competitor');
   }
   
-  function emptySpaceIds(){
+  function getEmptySpaceIds(){
     return $('.space.unselected').map(function(index, elem){
       return parseInt($(this).attr('data-space-id'), 10);
-    });
+    }).toArray();
   }
   
   function reset(){
@@ -129,7 +129,7 @@ var Board = function(){
     simulate: simulate,
     getSpaceIdsForAI: getSpaceIdsForAI,
     getSpaceIdsForCompetitor: getSpaceIdsForCompetitor,
-    emptySpaceIds: emptySpaceIds
+    getEmptySpaceIds: getEmptySpaceIds
   };
   
 }();

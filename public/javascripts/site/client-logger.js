@@ -20,9 +20,30 @@ var Logger = new function(){
     counter = 0;
   }
   
+  function itemNiceString(item){
+   if(typeof item == 'string' || typeof item == 'number'){
+      return item;
+    //it is now an array,
+    }else if(item instanceof Array){
+      var collectedItems = [];
+      $.each(item, function(index, singleItem){
+        collectedItems.push(itemNiceString(singleItem));
+      });
+      return '[' + collectedItems.join(', ') +']';
+    }else{
+      var collectedItems = [];
+      $.each(item, function(key,value){
+        collectedItems.push(itemNiceString(key) + ': '+ itemNiceString(value));
+      });
+       return '{' + collectedItems.join(', ') + '}';
+    }
+  }
+  
   function userLog(level, message){
     var userConsole = $('#'+userConsoleId);
-    userConsole.append($('<p>').addClass('log').addClass(level).text(++counter + ': ' +message));
+    //just set the message as a string
+    message = itemNiceString(message);
+    userConsole.append($('<p>').addClass('log').addClass(level).text(++counter + ': ' + message));
     userConsole.attr({ scrollTop: userConsole.attr("scrollHeight") - userConsole.height() });
   }
   
