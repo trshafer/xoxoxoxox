@@ -26,27 +26,23 @@ var Rules = function(){
     var isGameOver = false;
     var winner = null;
     var winningSet = $();
-    //first check for user wins
-    var userSpaces = Board.spaceIdsFor('user'), computerSpaces = Board.spaceIdsFor('computer');
-    if(userSpaces.size() == 0){
-      userSpaces = Board.spaceIdsFor('computer');
-      computerSpaces = Board.spaceIdsFor('competitor');
-    }
-    // log(userSpaces, 'userSpaces');
+    //first check for competitor wins
+    var competitorSpaces = Board.getSpaceIdsForCompetitor(), computerSpaces = Board.getSpaceIdsForAI();
+    // log(competitorSpaces, 'competitorSpaces');
     // log(computerSpaces, 'computerSpaces');
     
     //ugh I can do this better..
-    //check for user win
+    //check for competitor win
     $.each(winningSets, function(index, elem){
       if(isGameOver){
         return;
       }
-      var intersection = intersectionOf($(this), userSpaces);
+      var intersection = intersectionOf($(this), competitorSpaces);
       // log(intersection, 'intersection');
       if($(this).compare(intersection)){
         winningSet = intersection;
         isGameOver = true;
-        winner = 'user';
+        winner = 'competitor';
       }
     });
     
@@ -60,7 +56,7 @@ var Rules = function(){
       if($(this).compare(intersection)){
         winningSet = intersection;
         isGameOver = true;
-        winner = 'computer';
+        winner = 'ai';
       }
     });
     
@@ -80,7 +76,7 @@ var Rules = function(){
   
   function informOfWinner(winner){
     if(winner != null){
-      $('#end-game-results').text('You ' + (winner == 'user' ? 'win' : 'lose') + '!' );
+      $('#end-game-results').text('You ' + (winner == 'competitor' ? 'win' : 'lose') + '!' );
     }else{
       $('#end-game-results').text('It\'s a tie.');
     }

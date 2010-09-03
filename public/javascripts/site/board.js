@@ -27,6 +27,7 @@ function intersectionOf(array1, array2){
 
 var Board = function(){
   
+  var simulation;
 
   function initClicks(){
     $('.space.unselected').live('click', spaceHandler);
@@ -37,13 +38,14 @@ var Board = function(){
   }
   
   function simulate(competitor){
-    reset();
+    Board.reset();
+    simulation = true;
     var player = 'competitor';
     var aiWorks = true;
     var successfulAIMove;
     while(!Rules.gameOver() && aiWorks){
       if(player == 'competitor'){
-        player = 'user';
+        player = 'ai';
         successfulAIMove = AIDriver.moveCompetitor();
         if(!successfulAIMove){
           aiWorks = false;
@@ -63,9 +65,10 @@ var Board = function(){
   }
   
   function spaceHandler(ev, data){
+    
     AIMaker.ensureCurrentCode();
     if(data == null){
-      data= {player: 'user'};
+      data= {player: 'competitor'};
     }
     // log('click by: '+ data.player);
     //the click action
@@ -77,7 +80,7 @@ var Board = function(){
       killClicks();
       return;
     }
-    if(data.player == 'user'){
+    if(data.player == 'competitor' && !simulation){
        var successfulAIMove = AIDriver.move();
        if(!successfulAIMove){
          Logger.systemError('Retracted user move from space '+ $(this).attr('data-space-id')+'.');
@@ -88,10 +91,18 @@ var Board = function(){
     // Account.markMove(data.player, $(this).attr('data-space-id'));
   };
   
-  function spaceIdsFor(player){
+  function getSpaceIdsFor(player){
     return $('.space.selected.'+player).map(function(index, elem){
       return parseInt($(this).attr('data-space-id'), 10);
     });
+  }
+  
+  function getSpaceIdsForAI(){
+    return getSpaceIdsFor('ai');
+  }
+  
+  function getSpaceIdsForCompetitor(){
+    return getSpaceIdsFor('competitor');
   }
   
   function emptySpaceIds(){
@@ -101,8 +112,9 @@ var Board = function(){
   }
   
   function reset(){
+    simulation = false;
     $('.space').removeClass('selected').
-    removeClass('user').removeClass('computer').removeClass('competitor').
+    removeClass('ai').removeClass('competitor').
     removeClass('winning-space').addClass('unselected');
     $('#end-game-results').text('');
     killClicks();
@@ -115,7 +127,8 @@ var Board = function(){
     },
     reset: reset,
     simulate: simulate,
-    spaceIdsFor: spaceIdsFor,
+    getSpaceIdsForAI: getSpaceIdsForAI,
+    getSpaceIdsForCompetitor: getSpaceIdsForCompetitor,
     emptySpaceIds: emptySpaceIds
   };
   

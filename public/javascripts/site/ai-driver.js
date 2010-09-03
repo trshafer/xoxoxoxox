@@ -33,7 +33,7 @@ var AIDriver = function(){
       ai = userAI;
     }
     if(player == null){
-      player = 'computer';
+      player = 'ai';
     }
     var response = ai.move();
     var elem = $(response);

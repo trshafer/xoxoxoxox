@@ -191,9 +191,9 @@ html {
     background-position: center; }
     #container.logged-in #board-wrapper .space.unselected {
       background-image: url(/images/spaces/blank.png); }
-    #container.logged-in #board-wrapper .space.selected.user, #container.logged-in #board-wrapper .space.selected.competitor {
+    #container.logged-in #board-wrapper .space.selected.competitor {
       background-image: url(/images/spaces/x.png); }
-    #container.logged-in #board-wrapper .space.selected.computer {
+    #container.logged-in #board-wrapper .space.selected.ai {
       background-image: url(/images/spaces/o.png); }
     #container.logged-in #board-wrapper .space.selected.winning-space {
       background-color: green; }
