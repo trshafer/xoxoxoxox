@@ -1,7 +1,6 @@
 @import base.sass
 
 #container.logged-out
-  :overflow hidden
   #content
     :overflow hidden
   #account-bar-wrapper
@@ -71,10 +70,12 @@
         :color #008300
   #overview
     :margin-top 20px
+    .ui-widget-header
+      :background none
+      :border none
     ul#overview-tabs
       :overflow hidden
       :border-bottom 1px solid black
-
       li
         :float left
         :margin-right 10px
@@ -102,9 +103,11 @@
       :display none
   #tech-specs
     h3
+      :line-height 1.3em
       :margin-bottom 5px
     p
-      :margin-top 10px
+      :margin-bottom 10px
+      :line-height 1.2em
     dl
       :overflow hidden
       :margin-bottom 10px

@@ -1,44 +1,42 @@
-#container.logged-out {
+#container.logged-out #content {
   overflow: hidden; }
-  #container.logged-out #content {
-    overflow: hidden; }
-  #container.logged-out #account-bar-wrapper {
-    background-image: url(/images/login.png);
-    background-position: right;
-    background-repeat: no-repeat;
-    float: right;
-    height: 600px;
-    width: 485px; }
-    #container.logged-out #account-bar-wrapper #logged-out-wrapper {
-      margin-top: 352px;
-      margin-left: 62px;
-      width: 343px; }
-      #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper {
-        font-size: 2em;
-        text-align: center;
-        padding-top: 32px; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper #show-login-form-link {
-          margin-bottom: 20px;
-          padding-bottom: 20px;
-          border-bottom: 1px solid black; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper a {
-          text-decoration: none; }
-      #container.logged-out #account-bar-wrapper #logged-out-wrapper form li {
-        overflow: hidden;
-        margin-bottom: 10px; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li label {
-          float: left;
-          width: 90px; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=text], #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=password] {
-          float: left;
-          width: 140px; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper form li.boolean label {
-          width: 125px; }
-      #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol {
-        overflow: hidden; }
-        #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol li {
-          float: left;
-          margin-right: 20px; }
+#container.logged-out #account-bar-wrapper {
+  background-image: url(/images/login.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  float: right;
+  height: 600px;
+  width: 485px; }
+  #container.logged-out #account-bar-wrapper #logged-out-wrapper {
+    margin-top: 352px;
+    margin-left: 62px;
+    width: 343px; }
+    #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper {
+      font-size: 2em;
+      text-align: center;
+      padding-top: 32px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper #show-login-form-link {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid black; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper #login-signup-link-wrapper a {
+        text-decoration: none; }
+    #container.logged-out #account-bar-wrapper #logged-out-wrapper form li {
+      overflow: hidden;
+      margin-bottom: 10px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form li label {
+        float: left;
+        width: 90px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=text], #container.logged-out #account-bar-wrapper #logged-out-wrapper form li input[type=password] {
+        float: left;
+        width: 140px; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form li.boolean label {
+        width: 125px; }
+    #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol {
+      overflow: hidden; }
+      #container.logged-out #account-bar-wrapper #logged-out-wrapper form fieldset.buttons ol li {
+        float: left;
+        margin-right: 20px; }
 
 #container.logged-out #tic-tac-toe-overview {
   float: left;
@@ -64,6 +62,9 @@
       color: #008300; }
 #container.logged-out #overview {
   margin-top: 20px; }
+  #container.logged-out #overview .ui-widget-header {
+    background: none;
+    border: none; }
   #container.logged-out #overview ul#overview-tabs {
     overflow: hidden;
     border-bottom: 1px solid black; }
@@ -95,9 +96,11 @@
   #container.logged-out #overview .ui-tabs-hide {
     display: none; }
 #container.logged-out #tech-specs h3 {
+  line-height: 1.3em;
   margin-bottom: 5px; }
 #container.logged-out #tech-specs p {
-  margin-top: 10px; }
+  margin-bottom: 10px;
+  line-height: 1.2em; }
 #container.logged-out #tech-specs dl {
   overflow: hidden;
   margin-bottom: 10px;

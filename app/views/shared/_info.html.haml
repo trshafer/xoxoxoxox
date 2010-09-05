@@ -7,11 +7,11 @@
     %span#meeeee= mail_to nil, 'Thomas Shafer'
   #overview
     %ul#overview-tabs
-      %li= link_to 'Introduction', '#introduction'
+      %li= link_to 'Welcome Redditors', '#introduction'
       %li= link_to 'Technical Specs for The Reddit Admins', '#tech-specs'
     #introduction
       The Intro
-    #tech-specs{:class => 'ui-tabs-hide'}
+    #tech-specs{:class => 'ui-tabs-hide'}    
       %h3 Quick Specs
       %dl
         %dt Hosted on:
@@ -24,6 +24,8 @@
         %dd Ruby REE 1.8.7
         %dt Web Framework:
         %dd Ruby on Rails 2.3.8
+        %dt Database:
+        %dd MySQL
         %dt Javascript Framework:
         %dd jQuery
       %p 
@@ -32,4 +34,27 @@
       %p
         The source is located at
         = "#{link_to_external('http://www.github.com/growlypants/xoxoxoxox')}."
-      
+        The commit log is at
+        = "#{link_to_external('http://github.com/growlypants/xoxoxoxox/commits/master')}."
+      %h3 The Story
+      %p
+        My original idea was a very basic game of tic tac toe. Then it evolved into a game with login where you could save your stats.
+        I created models that encapsulated a game and a move. I then had every move make an ajax call to save the move. 
+        My reason for that was to allow users to replay the game in the same way Google Wave allows you to replay conversations.
+        I quickly realized this was, although technically semi unique, pretty uninteresting to use. After taking a break to grab some mexican food,
+        on my way home I thought of the current idea, an educational environment for students to lean algorithms. Everybody knows the rules to tic tac toe,
+        and there are many approaches to create a reasonable AI.
+      %p 
+        I developed an environment for users to create an account and be immediately presented with a full environment to develop a tic tac toe AI.
+        I pre-populate an AI for the user, which always chooses the first available square. I then provide many interface methods for the users to
+        interact with the board. They can get the AIs squares, opponent squares, and empty spaces. All they must do is implement an move function, which
+        returns an integer. The move function is called on every turn the AI has.
+      %p
+        I tried three different code highlighting plugins. I started with EditArea, moved on to Bespin, and finally settled on Code Mirror. It was the most
+        lightweight of the three and allowed me to style it how I wanted.
+      %p
+        I then implemented a Logger for students to use. However .toString() on an object is just heinous in JavaScript. So if the students pass in
+        an object to the client logger, it will output a pretty printed Array or JSON object, so they don't see "[Object object]".
+      %p
+        As scope creep continued over the past week, I thought of the idea for students to be able to pit their AI against other students AIs.
+        This was reasonably challenging as the AI must use the same interface but return different values if the AI acts as the opponent and not the AI.    
