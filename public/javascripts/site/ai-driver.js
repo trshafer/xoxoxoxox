@@ -25,7 +25,11 @@ var AIDriver = function(){
   }
   
   function moveCompetitor(){
-   return move(competitorAI, 'competitor');
+    try{
+      return move(competitorAI, 'competitor');
+    }catch (e){
+      return false;
+    }
   }
   
   function move(ai, player){
