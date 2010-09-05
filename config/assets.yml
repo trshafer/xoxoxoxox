@@ -19,7 +19,9 @@ javascripts:
     - public/javascripts/site/*.js
 
 stylesheets:
-  site:
+  library:
     - public/stylesheets/reset.css
+    - public/stylesheets/ui-lightness/jquery-ui-1.8.4.custom.css
+  site:
     - public/stylesheets/application.css
     - public/stylesheets/logged-out.css
