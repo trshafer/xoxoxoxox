@@ -113,6 +113,7 @@ $('#new_ai_implementation').live('submit', function(ev){
       $('#ai-code-list').find('li.add-form-wrapper').after(newItem);
       newItem.click();
       $('a#add-code-hide').click();
+      WindowHandler.resize();
       }
   });
   return false;
