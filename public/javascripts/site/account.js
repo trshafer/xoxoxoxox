@@ -23,6 +23,8 @@ $('#signup-link').live('click', function(ev){
 
 $('form#new_user_session').live('submit', function(ev){
   ev.preventDefault();
+  $(this).find('fieldset.buttons').hide();
+  $(this).find('.form-loader').show();
   $(this).ajaxSubmit({success: function(request, statusText, xhr){
     WindowHandler.resize();
     ReadyHandler.init();
@@ -35,6 +37,8 @@ $('form#new_user_session').live('submit', function(ev){
 
 $('form#new_user').live('submit', function(ev){
   ev.preventDefault();
+  $(this).find('fieldset.buttons').hide();
+  $(this).find('.form-loader').show();
   $(this).ajaxSubmit({success: function(request, statusText, xhr){
     WindowHandler.resize();
     ReadyHandler.init();
