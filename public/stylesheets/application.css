@@ -9,6 +9,16 @@ html {
   height: inherit;
   margin: 0 10px; }
 
+.help-dialog p {
+  margin-bottom: 5px; }
+.help-dialog h3 {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+.help-dialog ul {
+  margin-left: 10px; }
+.help-dialog .code {
+  font-weight: bold; }
+
 #container.logged-in #ai-code-wrapper {
   width: 40%;
   height: inherit;
@@ -82,8 +92,12 @@ html {
       font-size: 10pt;
       font-family: monospace;
       line-height: 11pt; }
-#container.logged-in #save-wrapper {
+#container.logged-in #ai-code-footer {
   overflow: hidden; }
+#container.logged-in #save-wrapper {
+  overflow: hidden;
+  margin-top: 5px;
+  float: left; }
   #container.logged-in #save-wrapper #save-link {
     margin-right: 10px; }
     #container.logged-in #save-wrapper #save-link span {
@@ -93,6 +107,9 @@ html {
   #container.logged-in #save-wrapper div {
     margin-top: 5px;
     float: left; }
+#container.logged-in #help-wrapper {
+  float: right;
+  margin-top: 5px; }
 #container.logged-in #content {
   width: 58%;
   margin-left: 41%;

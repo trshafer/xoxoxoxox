@@ -9,6 +9,17 @@ html
   :height inherit
   :margin 0 10px 
 
+.help-dialog
+  p
+    :margin-bottom 5px
+  h3
+    :margin-top 5px
+    :margin-bottom 5px
+  ul
+    :margin-left 10px
+  .code
+    :font-weight bold
+
 //CODE LIST
 
 #container.logged-in
@@ -87,8 +98,12 @@ html
 
 
   //AI FOOTER
+  #ai-code-footer
+    :overflow hidden
   #save-wrapper
     :overflow hidden
+    :margin-top 5px
+    :float left
     #save-link
       :margin-right 10px
       span
@@ -98,6 +113,9 @@ html
     div
       :margin-top 5px
       :float left
+  #help-wrapper
+    :float right
+    :margin-top 5px
   
   
   #content
@@ -148,7 +166,6 @@ html
 
   #tic-tac-toe
     :padding-top 10px
-
   //USER CONSOLE
   #user-console-wrapper
     :height 50%

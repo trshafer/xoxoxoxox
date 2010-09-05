@@ -65,6 +65,10 @@ $('a#add-code-show').live('click', function(){
   WindowHandler.resize();
 });
 
+$('#show-help').live('click', function(ev){
+  Help.show();
+});
+
 $('.publishing-actions input[type=submit]').live('click',function(ev){
   ev.preventDefault();
   var publishForm = $(this).closest('form');
