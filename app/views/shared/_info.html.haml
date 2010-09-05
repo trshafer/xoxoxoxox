@@ -12,4 +12,24 @@
     #introduction
       The Intro
     #tech-specs{:class => 'ui-tabs-hide'}
-      Tech Specs
+      %h3 Quick Specs
+      %dl
+        %dt Hosted on:
+        %dd Linode VPS
+        %dt Server:
+        %dd Nginx
+        %dt Load Balancer:
+        %dd Phusion Passenger
+        %dt Application Language:
+        %dd Ruby REE 1.8.7
+        %dt Web Framework:
+        %dd Ruby on Rails 2.3.8
+        %dt Javascript Framework:
+        %dd jQuery
+      %p 
+        The entire web-app (sorry for the desktop-y layout/feel) is one fully AJAX web page. All click handlers, except the board squares, are live event handlers.
+        This was done to increase the document loading speed and increase the speed of development. Passwords are salted and hashed.
+      %p
+        The source is located at
+        = "#{link_to_external('http://www.github.com/growlypants/xoxoxoxox')}."
+      

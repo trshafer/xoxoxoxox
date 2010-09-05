@@ -43,7 +43,8 @@
 #container.logged-out #tic-tac-toe-overview {
   float: left;
   margin-top: 18px;
-  margin-left: 15px; }
+  margin-left: 15px;
+  width: 50%; }
   #container.logged-out #tic-tac-toe-overview #title {
     overflow: hidden;
     margin-bottom: 5px;
@@ -93,3 +94,21 @@
         background-color: #f2f5ff; }
   #container.logged-out #overview .ui-tabs-hide {
     display: none; }
+#container.logged-out #tech-specs h3 {
+  margin-bottom: 5px; }
+#container.logged-out #tech-specs p {
+  margin-top: 10px; }
+#container.logged-out #tech-specs dl {
+  overflow: hidden;
+  margin-bottom: 10px;
+  width: 400px;
+  line-height: 1.5em;
+  margin-left: 20px; }
+  #container.logged-out #tech-specs dl dt {
+    float: left;
+    width: 145px;
+    text-align: right;
+    margin-right: 10px; }
+  #container.logged-out #tech-specs dl dd {
+    float: left;
+    width: 200px; }
