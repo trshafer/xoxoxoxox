@@ -144,6 +144,9 @@ html {
   #container.logged-in #logged-in-wrapper #logout-link {
     padding-top: 5px;
     float: left; }
+  #container.logged-in #logged-in-wrapper #logout-loader {
+    padding-top: 5px;
+    float: left; }
 #container.logged-in #console-debug {
   overflow: hidden; }
 #container.logged-in .console-output {

@@ -4,6 +4,8 @@ $('#login-link').live('click', function(ev){
 });
 
 $('#logout-link').live('click', function(ev){
+  $(this).hide();
+  $('#logout-loader').show();
   ev.preventDefault();
   $.get($(this).attr('href'), function(data){
     WindowHandler.resize();
