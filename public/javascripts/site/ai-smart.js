@@ -1,103 +1,111 @@
 SmartAI = new function(){
+  
+  function include(arr,obj) {
+    return (arr.indexOf(obj) != -1);
+  }
+  
   function move(){
-    var userIds = Board.spaceIdsFor('user'), computerIds = Board.spaceIdsFor('computer');
-    var availableIds = Board.emptySpaceIds();
-    var theCheck = checkWrapper(availableIds, userIds, computerIds);
-    log(theCheck, 'theCheck')
-    return theCheck;
-  }
-  
-  function checkWrapper(availableIds, userIds, computerIds){
-    availableIds.filter(function(index, item){
-        return checkWrapper2(availableIds, userIds, computerIds, 'computer');
-      });
+    var userBlock = checkForUserBlock();
+    if(userBlock != null){
+      return userBlock;
     }
-
-  function checkWrapper2(availableIds, userIds, computerIds, whoseMove){
-    if(availableIds.size() == 0){
-      var wrapper = $('<div>').addClass('console-output')
-      var joined = userIds.get().join(', ')
-      wrapper.append($('<p>').text("User ids: "+ joined))
-      wrapper.append($('<p>').text("Computer ids: "+ computerIds.get().join(', ')))
-      if(joined == '0, 2, 4, 6, 8'){
-        $('#console-debug').append(wrapper)
-       debugger;      
+    var nextOptions = [4,0,2,6,8];
+    for(var i = 0; i < nextOptions.length; i++){
+      var item = nextOptions[i];
+      if(Board.getSpaceOccupier(item) == 'empty'){
+        return item;
       }
-
-      return Rules.playerWins(computerIds);
-    }else{
-      var winningIds = availableIds.filter(function(index, nextId){
-        var copiedIds = availableIds.map(function(index, item){return item});
-        copiedIds = copiedIds.not($(nextId))
-        var newUserIds = userIds.map(function(index, item){return item});
-        var newComputerIds = computerIds.map(function(index, item){return item});
-        var nextPlayer;
-        if(whoseMove == 'computer'){
-          newComputerIds.push(nextId)
-          nextPlayer = 'user'
-        }else{
-          newUserIds.push(nextId)
-          nextPlayer = 'computer'
-        }
-
-         // debugger
-        return checkWrapper2(copiedIds, newUserIds, newComputerIds, nextPlayer);
-      });
-      debugger
-      return winningIds.size() > 0;
     }
+    return Board.getEmptySpaceIds()[0];
   }
+
+  function checkForUserBlock(){
+    var userSpaces = Board.getSpaceIdsForCompetitor();
+    var aiSpaces = Board.getSpaceIdsForAI();
+    var checking = [aiSpaces, userSpaces ];
+    Logger.info(checking)
+    for(var i=0; i < checking.length; i++){
+      var spacesToCheck = checking[i];
+      Logger.info(spacesToCheck)
+      var horizontalCheckOptions = [[1,2],[0,2],[0,1]];
+      var needBlock = worthwhileMove(spacesToCheck, horizontalCheckOptions, true);
+      if(needBlock != null){
+        Logger.info('BLOCKING HORIZ');
+        return needBlock;
+      }
+      var verticalCheckOptions = [[3,6],[0,6],[0,3]];
     
-    // 
-    //      return 
-    // while(availableIds.size() > 0){
-    //    return check(availableIds, userIds, computerIds, 'computer');
-    // }
-     
+      needBlock = worthwhileMove(spacesToCheck, verticalCheckOptions, false);
+      if(needBlock != null){
+        Logger.info('BLOCKING VERT');
+        return needBlock;
+      }
+      //Diagonal
+      if(include(spacesToCheck, 0) && include(spacesToCheck, 8)){
+        if(Board.getSpaceOccupier(4) == 'empty'){
+          return 4;
+        }
+      }
+      if(include(spacesToCheck, 2) && include(spacesToCheck, 6)){
+        if(Board.getSpaceOccupier(4) == 'empty'){
+          return 4;
+        }
+      }
+      var secondMove = checkSecondMove(spacesToCheck)
+      if(secondMove){
+        return secondMove;
+      } 
+    }
+    return null;
+  }  
   
-  function check(availableIds, userIds, computerIds, whoseMove){
-    availableIds = availableIds.map(function(index, item){return item});
-    userIds = userIds.map(function(index, item){return item});
-    computerIds = computerIds.map(function(index, item){return item});
-
-    // log(availableIds, 'availableIds')
-    log(computerIds, 'computerIds');
-    // log(userIds, 'userIds');
-
-    
-    if(Rules.computerWins(computerIds)){
-      return true;
-    }else if(availableIds.size() == 0){
-      return false;
-    }else{
-      // copiedIds = availableIds.map(function(index, item){return item});
-      // availableIds.each(function(index, nextId){
-        var nextId = availableIds[0]
-        // log(nextId, 'nextId')
-        availableIds = availableIds.not($(nextId))
-        // log(availableIds, 'availableIds - not')
-        // var newAvailableIds = copiedIds.not($(nextId))
-        var nextPlayer;
-        if(whoseMove == 'computer'){
-          computerIds.push(nextId)
-          nextPlayer = 'user'
-        }else{
-          userIds.push(nextId)
-          nextPlayer = 'computer'
+  function checkSecondMove(spacesToCheck){
+    var diagonalCheck = [
+    [0,7,6], [2,7,8],[1,8,3],[2,6,0],
+    [0,5,2],[6,5,8],[3,2,0],[3,8,6],
+    [0,8,6],[0,8,2],[2,6,0],[2,6,8],
+    [3,1,0],[1,5,2],[3,7,6],[7,5,8]];
+    for(var i=0;i<diagonalCheck.length;i++){
+      var item = diagonalCheck[i];
+      if(include(spacesToCheck, item[0]) && include(spacesToCheck, item[1])){
+        if(Board.getSpaceOccupier(item[2]) == 'empty'){
+          return item[2];
         }
-         return check(availableIds, userIds, computerIds, nextPlayer);
-      // });
+      }
     }
-
-    // availableIds.each(function(availableIds, item){
-    //   afterMoveComputerIds.push(item);
-    //   log(afterMoveComputerIds, 'afterMoveComputerIds');
-    //   log(computerIds, 'computerIds');
-    //   log(Rules.computerWins(afterMoveComputerIds), 'computerWins')
-    // });
-    //  bestId = availableIds[0];
-    // return $('#space-'+bestId);
+    return null;
   }
+  
+  function worthwhileMove(spacesToCheck, checkingOptions, horizontal){
+    var move = horizontal ? 3 : 1 
+    var aiSpaces = Board.getSpaceIdsForAI();
+    // Logger.info(spacesToCheck);
+    for(var i =0; i < checkingOptions.length; i++){
+      var item = checkingOptions[i];
+      // Logger.info(item)
+      if(include(spacesToCheck, item[0]) && include(spacesToCheck, item[1])){
+        var aiMove = (horizontal ? 0+i : i*3);
+        if(Board.getSpaceOccupier(aiMove) == 'empty'){
+          return aiMove;
+        }
+      }
+      if(include(spacesToCheck, item[0]+move) && include(spacesToCheck, item[1]+move)){
+        var aiMove =(horizontal ? 3+i : i*3+1);
+        if(Board.getSpaceOccupier(aiMove) == 'empty'){
+          return aiMove;
+        }
+      }
+      if(include(spacesToCheck, item[0]+move*2) && include(spacesToCheck, item[1]+move*2)){
+        var aiMove = (horizontal ? 6+i : i*3+2);
+        if(Board.getSpaceOccupier(aiMove) == 'empty'){
+          return aiMove;
+        }
+      }
+    }
+    return null;
+  }
+ 
+
     return {move:move};
 }();
   
