@@ -76,7 +76,17 @@ var Rules = function(){
   
   function informOfWinner(winner){
     if(winner != null){
-      $('#end-game-results').text('You ' + (winner == 'competitor' ? 'win' : 'lose') + '!' );
+      var text = ''
+      if(winner == 'competitor'){
+        if(Board.isSimulation()){
+          text = 'Opponents AI wins.';
+        }else{
+          text = 'User wins.';
+        }
+      }else{
+        text = 'Your AI wins!';
+      }
+      $('#end-game-results').text(text);
     }else{
       $('#end-game-results').text('It\'s a tie.');
     }

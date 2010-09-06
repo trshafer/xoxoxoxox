@@ -90,7 +90,7 @@ var Board = function(){
     if(data.player == 'competitor' && !simulation){
        var successfulAIMove = AIDriver.move();
        if(!successfulAIMove){
-         Logger.systemError('Retracted user move from space '+ $(this).attr('data-space-id')+'.');
+         Logger.systemError('Retracted user move from space '+ $(this).attr('data-space-id')+'. To allow you to make the move again.');
          $(this).addClass('unselected').removeClass('selected').removeClass(data.player);
          return;
        }
@@ -154,11 +154,16 @@ var Board = function(){
     initClicks();
   }
   
+  function isSimulation(){
+    simulation;
+  }
+  
   return {
     init: function(){
       initClicks();
     },
     reset: reset,
+    isSimulation: isSimulation,
     simulate: simulate,
     isNotAI: isNotAI,
     getSpaceOccupier: getSpaceOccupier,
