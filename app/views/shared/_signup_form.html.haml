@@ -1,4 +1,5 @@
 - semantic_form_for @user, :url => users_path, :html => {:style => 'display:none'} do |f|
+  %h3 Signup Form for new users
   = f.semantic_errors
   - f.inputs do
     = f.input :login, :required => true

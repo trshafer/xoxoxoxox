@@ -1,4 +1,5 @@
 - semantic_form_for @user_session, :url => user_session_path,:html => {:class => 'validate', :style => 'display:none'} do |f|
+  %h3 Login Form for already registered users
   = f.semantic_errors
   - f.inputs do
     = f.input :login
