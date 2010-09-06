@@ -8,7 +8,7 @@
       %span.name= current_user.login
     = link_to 'logout', logout_url, :id => 'logout-link'
     #logout-loader{:style => 'display:none'}
-      Loading
+      = image_tag 'account-loader.gif'
 
   :javascript
     Account.login(#{current_user.id})
