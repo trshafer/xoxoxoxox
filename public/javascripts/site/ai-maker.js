@@ -74,7 +74,8 @@ $('.publishing-actions input[type=submit]').live('click',function(ev){
   var publishForm = $(this).closest('form');
   var listItem = $(this).closest('li');
   var actionsWrapper = $(this).closest('.publishing-actions');
-  actionsWrapper.hide();
+  actionsWrapper.find('.publish').hide();
+  actionsWrapper.find('.unpublish').hide();
   publishForm.find('.form-loader').show();
   publishForm.find('input.publish-input').val($(this).attr('data-publish'));
   publishForm.ajaxSubmit({
@@ -86,13 +87,13 @@ $('.publishing-actions input[type=submit]').live('click',function(ev){
         actionsWrapper.find('.publish').hide();
         actionsWrapper.find('.unpublish').show();
         listItem.removeClass('unpublished').addClass('published');
-        actionsWrapper.show();
+        // actionsWrapper.show();
 
       }else{
         actionsWrapper.find('.publish').show();
         actionsWrapper.find('.unpublish').hide();
         listItem.removeClass('published').addClass('unpublished');
-        actionsWrapper.show();
+        // actionsWrapper.show();
       }
     }
   });
