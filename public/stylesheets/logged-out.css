@@ -69,6 +69,8 @@
     border: none; }
   #container.logged-out #overview .ui-state-default {
     border: none; }
+  #container.logged-out #overview #introduction {
+    height: 415px; }
   #container.logged-out #overview ul#overview-tabs {
     overflow: hidden;
     border-bottom: 1px solid black; }
