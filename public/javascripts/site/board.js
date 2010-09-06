@@ -28,6 +28,7 @@ function intersectionOf(array1, array2){
 var Board = function(){
   
   var simulation;
+  var simulationPlayer;
 
   function initClicks(){
     $('.space.unselected').live('click', spaceHandler);
@@ -40,12 +41,12 @@ var Board = function(){
   function simulate(competitor){
     Board.reset();
     simulation = true;
-    var player = 'competitor';
+    simulationPlayer = 'competitor';
     var aiWorks = true;
     var successfulAIMove;
     while(!Rules.gameOver() && aiWorks){
-      if(player == 'competitor'){
-        player = 'ai';
+      if(simulationPlayer == 'competitor'){
+        simulationPlayer = 'ai';
         successfulAIMove = AIDriver.moveCompetitor();
         if(!successfulAIMove){
           aiWorks = false;
@@ -53,7 +54,7 @@ var Board = function(){
           return;
         }
       }else{
-        player = 'competitor';
+        simulationPlayer = 'competitor';
         successfulAIMove = AIDriver.move();
         if(!successfulAIMove){
           aiWorks = false;
@@ -98,11 +99,36 @@ var Board = function(){
   }
   
   function getSpaceIdsForAI(){
-    return getSpaceIdsFor('ai');
+    var player = ((simulationPlayer != null || simulationPlayer != 'competitor') ? 'ai' : 'competitor');
+    return getSpaceIdsFor(player);
   }
   
+  function getSpaceOccupier(spaceId){
+    var space = $('#space-'+spaceId);
+    var player = ((simulationPlayer != null || simulationPlayer != 'competitor') ? 'ai' : 'competitor');
+    if(player == 'ai'){
+      if(space.hasClass('ai')){
+        return 'ai';
+      }else if(space.hasClass('competitor')){
+        return 'competitor';
+      }else{
+        return 'empty';
+      }
+    }else{
+      if(space.hasClass('ai')){
+        return 'competitor';
+      }else if(space.hasClass('competitor')){
+        return 'ai';
+      }else{
+        return 'empty';
+      }
+    }
+  }
+
+  
   function getSpaceIdsForCompetitor(){
-    return getSpaceIdsFor('competitor');
+    var player = ((simulationPlayer != null || simulationPlayer != 'competitor') ? 'competitor' : 'ai');
+    return getSpaceIdsFor(player);
   }
   
   function getEmptySpaceIds(){
@@ -113,6 +139,7 @@ var Board = function(){
   
   function reset(){
     simulation = false;
+    simulationPlayer = null;
     $('.space').removeClass('selected').
     removeClass('ai').removeClass('competitor').
     removeClass('winning-space').addClass('unselected');
@@ -127,6 +154,7 @@ var Board = function(){
     },
     reset: reset,
     simulate: simulate,
+    getSpaceOccupier: getSpaceOccupier,
     getSpaceIdsForAI: getSpaceIdsForAI,
     getSpaceIdsForCompetitor: getSpaceIdsForCompetitor,
     getEmptySpaceIds: getEmptySpaceIds

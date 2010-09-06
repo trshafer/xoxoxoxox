@@ -18,6 +18,7 @@ var Help = new function(){
     $('<li>').text('To get competitor (user/opponent ai) spaces call: ').append($('<span class="code">').text('Board.getSpaceIdsForCompetitor();')).appendTo(interfaceInstructions);
     $('<li>').text('To get computer spaces call: ').append($('<span class="code">').text('Board.getSpaceIdsForAI();')).appendTo(interfaceInstructions);
     $('<li>').text('To get empty spaces call: ').append($('<span class="code">').text('Board.getEmptySpaceIds();')).appendTo(interfaceInstructions);
+    $('<li>').text('To see who occupies a space (returns \'ai\', \'competitor\', \'blank\') pass an integer to: ').append($('<span class="code">').text('Board.getSpaceOccupier(spaceId);')).appendTo(interfaceInstructions);
     $('<li>').text('To see if you have a winning set use: ').append($('<span class="code">').text('Rules.playerWins(playerIdsArray);')).appendTo(interfaceInstructions);
 
     var loggerInstructions = $('<ul>');
@@ -37,8 +38,8 @@ var Help = new function(){
 
     helpDialog.dialog({
       dialogClass: 'help-dialog',
-      height: 320,
-      width: 690,
+      height: 335,
+      width: 746,
       close: function(ev){
         $(this).remove();
       },
