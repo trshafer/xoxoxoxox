@@ -38,6 +38,12 @@ var Board = function(){
     $('.space.unselected').die('click', spaceHandler);
   }
   
+  function isNotAI(){
+    if(!simulate || simulationPlayer == 'ai'){
+      return true;
+    }
+  }
+  
   function simulate(competitor){
     Board.reset();
     simulation = true;
@@ -154,6 +160,7 @@ var Board = function(){
     },
     reset: reset,
     simulate: simulate,
+    isNotAI: isNotAI,
     getSpaceOccupier: getSpaceOccupier,
     getSpaceIdsForAI: getSpaceIdsForAI,
     getSpaceIdsForCompetitor: getSpaceIdsForCompetitor,

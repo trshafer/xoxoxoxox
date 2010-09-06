@@ -40,6 +40,9 @@ var Logger = new function(){
   }
   
   function userLog(level, message){
+    if(Board.isNotAI()){
+      return;
+    }
     var userConsole = $('#'+userConsoleId);
     //just set the message as a string
     message = itemNiceString(message);
