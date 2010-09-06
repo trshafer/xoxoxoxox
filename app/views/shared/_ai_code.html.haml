@@ -10,6 +10,8 @@
           = f.inputs :name
           - f.buttons do
             = f.commit_button 'Save', :button_html => {:class => 'commit'}
+          .form-loader{:style => 'display:none'}
+            = image_tag 'account-loader.gif'
       = render :partial => 'ai_implementations/tab_item', :collection => current_user.ai_implementations
 
   #ai-code-content

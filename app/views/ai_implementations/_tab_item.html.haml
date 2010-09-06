@@ -7,3 +7,5 @@
     .publishing-actions
       = f.submit 'Publish', :class => 'publish', :style => (tab_item.published? ? 'display:none' : nil), :id => nil, :'data-publish' => 1
       = f.submit 'Unpublish', :class => 'unpublish', :style => (tab_item.published? ? nil : 'display:none'), :id => nil, :'data-publish' => 0
+    .form-loader{:style => 'display:none'}
+      = image_tag 'account-loader.gif'

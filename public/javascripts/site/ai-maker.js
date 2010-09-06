@@ -74,19 +74,25 @@ $('.publishing-actions input[type=submit]').live('click',function(ev){
   var publishForm = $(this).closest('form');
   var listItem = $(this).closest('li');
   var actionsWrapper = $(this).closest('.publishing-actions');
+  actionsWrapper.hide();
+  publishForm.find('.form-loader').show();
   publishForm.find('input.publish-input').val($(this).attr('data-publish'));
   publishForm.ajaxSubmit({
     dataType: 'json',
     type: 'put',
     success: function(data){
+      publishForm.find('.form-loader').hide();
       if(data.ai_implementation.published){
         actionsWrapper.find('.publish').hide();
         actionsWrapper.find('.unpublish').show();
         listItem.removeClass('unpublished').addClass('published');
+        actionsWrapper.show();
+
       }else{
         actionsWrapper.find('.publish').show();
         actionsWrapper.find('.unpublish').hide();
         listItem.removeClass('published').addClass('unpublished');
+        actionsWrapper.show();
       }
     }
   });
@@ -104,15 +110,21 @@ $('a#add-code-hide').live('click', function(){
 });
 
 $('#new_ai_implementation').live('submit', function(ev){
+  var theForm = $(this);
   ev.preventDefault();
-  $(this).ajaxSubmit({
+  theForm.find('fieldset.buttons').hide();
+  theForm.find('.form-loader').show();
+  theForm.ajaxSubmit({
     dataType: 'js',
     success: function(data){
+      
       $('#ai-code-list').find('li.selected').removeClass('selected');
       var newItem = $(data);
       $('#ai-code-list').find('li.add-form-wrapper').after(newItem);
       newItem.click();
       $('a#add-code-hide').click();
+        theForm.find('fieldset.buttons').show();
+        theForm.find('.form-loader').hide();
       WindowHandler.resize();
       }
   });
