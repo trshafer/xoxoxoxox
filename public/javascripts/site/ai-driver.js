@@ -25,40 +25,40 @@ var AIDriver = function(){
   }
   
   function moveCompetitor(){
-    try{
-      return move(competitorAI, 'competitor');
-    }catch (e){
-      return false;
-    }
+    return move(competitorAI, 'competitor');
   }
   
   function move(ai, player){
-    if(ai == null){
-      ai = userAI;
-    }
-    if(player == null){
-      player = 'ai';
-    }
-    var response = ai.move();
-    var elem = $(response);
-    if(isInt(response)){
-      elem = $('#space-'+response);
-    }
-    else if(isInt(elem.get(0))){
-      elem = $('#space-'+elem.get(0));
-    }else{
-      elem = $(response);
-    }
-    if(elem.hasClass('selected')){
-      Logger.systemError('AI returned space '+ elem.attr('data-space-id')+', which has already been selected.');
-      return false;
-    }
-    else if(elem.hasClass('space')){
-      elem.trigger('click', {player: player});
-      return true;
-    }else{
-      Logger.systemError('AI did not return an Integer between 0-8.');
-      Logger.systemError('Returned: '+response);
+    try{
+      if(ai == null){
+        ai = userAI;
+      }
+      if(player == null){
+        player = 'ai';
+      }
+      var response = ai.move();
+      var elem = $(response);
+      if(isInt(response)){
+        elem = $('#space-'+response);
+      }
+      else if(isInt(elem.get(0))){
+        elem = $('#space-'+elem.get(0));
+      }else{
+        elem = $(response);
+      }
+      if(elem.hasClass('selected')){
+        Logger.systemError('AI returned space '+ elem.attr('data-space-id')+', which has already been selected.');
+        return false;
+      }
+      else if(elem.hasClass('space')){
+        elem.trigger('click', {player: player});
+        return true;
+      }else{
+        Logger.systemError('AI did not return an Integer between 0-8.');
+        Logger.systemError('Returned: '+response);
+        return false;
+      }
+    }catch (e){
       return false;
     }
   }

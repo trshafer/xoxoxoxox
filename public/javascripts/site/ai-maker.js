@@ -45,7 +45,13 @@ var AIMaker = new function(){
   }
   
   function wrapCode(code){
-    return new Function(code +"return {move:move};")();
+    try{
+      return new Function(code +"return {move:move};")();
+    }catch (e){
+      Logger.error(e.name + ': '+e.message);
+      debugger
+      throw e;
+    }
   }
   
   
