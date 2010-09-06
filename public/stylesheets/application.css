@@ -95,14 +95,14 @@ html {
       line-height: 11pt; }
 #container.logged-in #ai-code-footer {
   overflow: hidden; }
+  #container.logged-in #ai-code-footer span.small {
+    font-size: 80%; }
 #container.logged-in #save-wrapper {
   overflow: hidden;
   margin-top: 5px;
   float: left; }
   #container.logged-in #save-wrapper #save-link {
     margin-right: 10px; }
-    #container.logged-in #save-wrapper #save-link span {
-      font-size: 80%; }
   #container.logged-in #save-wrapper #save-loader {
     margin-top: 7px; }
   #container.logged-in #save-wrapper div {

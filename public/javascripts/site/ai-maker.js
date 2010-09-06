@@ -49,7 +49,6 @@ var AIMaker = new function(){
       return new Function(code +"return {move:move};")();
     }catch (e){
       Logger.error(e.name + ': '+e.message);
-      debugger
       throw e;
     }
   }
@@ -159,8 +158,9 @@ $('textarea#user_ai').live('blur', function(){
   AIMaker.ensureCurrentCode();
 });
 
-$(document).bind('keystrokes', {
-keys:["ctrl+s"]			
-}, function(event){
-	$('#save-code').click();
+shortcut.add("Ctrl+s",function() {
+  $('#save-code').click();
+});
+shortcut.add("Ctrl+m",function() {
+  Help.show();
 });

@@ -21,8 +21,9 @@
     #save-wrapper
       #save-link
         = link_to_void 'Save Code', :id => 'save-code'
-        %span (ctrl+s)
+        %span.small (ctrl+s)
       #save-loader{:style => 'display:none'}= image_tag 'save-loader.gif'
     #help-wrapper
       %strong#help-link
         = link_to_void 'HELP', :id => 'show-help'
+      %span.small (ctrl+m)
