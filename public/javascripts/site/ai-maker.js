@@ -14,6 +14,7 @@ var AIMaker = new function(){
     editor = CodeMirror.fromTextArea("user_ai", {
       autoMatchParens: true,
       lineNumbers: true,
+      textWrapping: false,
       saveFunction: function(ev){
         $('#save-code').click();
       },
