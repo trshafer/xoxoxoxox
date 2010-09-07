@@ -124,6 +124,7 @@ html {
 #container.logged-in #logged-in-wrapper {
   overflow: hidden; }
   #container.logged-in #logged-in-wrapper #logo {
+    line-height: 1.7em;
     float: left; }
     #container.logged-in #logged-in-wrapper #logo h1, #container.logged-in #logged-in-wrapper #logo h2 {
       float: left; }
@@ -132,7 +133,7 @@ html {
       font-size: 1.5em; }
     #container.logged-in #logged-in-wrapper #logo h2 {
       font-size: 1.3em;
-      padding-top: 3px; }
+      padding-top: 2px; }
   #container.logged-in #logged-in-wrapper #account {
     float: right; }
   #container.logged-in #logged-in-wrapper #login-name {
